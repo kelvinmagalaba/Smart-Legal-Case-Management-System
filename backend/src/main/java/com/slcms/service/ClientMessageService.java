@@ -144,12 +144,28 @@ public class ClientMessageService {
         // 3. Attempt real SMTP delivery via Gmail
         try {
             MimeMessage mime = mailSender.createMimeMessage();
-            MimeMessageHelper helper = new MimeMessageHelper(mime, false, "UTF-8");
+            MimeMessageHelper helper = new MimeMessageHelper(mime, true, "UTF-8");
 
-            helper.setFrom(fromAddress, "SLCMS Law Firm");
+            String actualFrom = (fromAddress != null && fromAddress.contains("@")) ? fromAddress.trim() : "legalcasem@gmail.com";
+            helper.setFrom(actualFrom, "SLCMS Law Firm");
+            helper.setReplyTo(actualFrom, "SLCMS Law Firm");
             helper.setTo(payload.getRecipient().trim());
             helper.setSubject(payload.getSubject());
-            helper.setText(payload.getMessageBody() != null ? payload.getMessageBody() : "", false);
+
+            String bodyText = payload.getMessageBody() != null ? payload.getMessageBody() : "";
+            String htmlBody = "<!DOCTYPE html><html><head><meta charset='UTF-8'></head><body style='font-family: Arial, sans-serif; color: #1E293B; line-height: 1.6; margin: 0; padding: 0;'>"
+                    + "<div style='background: #102A43; color: #FFFFFF; padding: 14px 20px; font-size: 16px; font-weight: bold;'>SLCMS Law Firm — Client Notification</div>"
+                    + "<div style='padding: 20px; border: 1px solid #E2E8F0; border-top: none; background: #FFFFFF;'>"
+                    + "<p style='font-size: 14px; margin-bottom: 16px;'>" + bodyText.replace("\n", "<br/>") + "</p>"
+                    + "<hr style='border: none; border-top: 1px solid #E2E8F0; margin: 20px 0;'/>"
+                    + "<p style='font-size: 12px; color: #64748B; margin: 0;'>Official Communication from SLCMS Legal Management System.<br/>Sender: " + actualFrom + "</p>"
+                    + "</div></body></html>";
+
+            helper.setText(bodyText, htmlBody);
+
+            mime.setHeader("X-Mailer", "SLCMS Legal System");
+            mime.setHeader("X-Priority", "1");
+            mime.setHeader("Importance", "high");
 
             mailSender.send(mime);           // <-- actual SMTP call to smtp.gmail.com:587
 
