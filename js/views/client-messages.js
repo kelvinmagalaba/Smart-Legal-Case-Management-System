@@ -198,33 +198,33 @@ const ClientMessagesView = {
     return `
       <div class="animate-fade client-message-studio">
         <!-- 1. STUDIO HEADER -->
-        <div class="view-header" style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
-          <div>
-            <div class="flex items-center gap-2">
-              <h1 class="page-title" style="margin-bottom: 0; font-size: 1.25rem;">Client Messages</h1>
-              <span class="badge" style="background: #ECFDF5; color: #047857; border-color: #A7F3D0; font-weight: 600; font-size: 0.72rem;">Gmail SMTP Ready</span>
-            </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+          <div class="flex items-center gap-2">
+            <h1 class="page-title" style="margin: 0; font-size: 1.15rem;">Client Messages</h1>
+            <span class="badge" style="background: #ECFDF5; color: #047857; border-color: #A7F3D0; font-weight: 600; font-size: 0.68rem; padding: 0.15rem 0.5rem;">SMTP Ready</span>
           </div>
 
           <div class="flex items-center gap-2">
             ${isAdmin ? `
-              <button class="btn btn-secondary btn-sm" onclick="ClientMessagesView.openSmtpConfigModal()" title="Gmail Settings">
-                <span>⚙️ Gmail Settings</span>
+              <button class="btn btn-secondary btn-sm" onclick="ClientMessagesView.openSmtpConfigModal()" title="Gmail Settings" style="height: 34px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Gmail Settings</span>
               </button>
             ` : ''}
-            <button class="btn btn-ghost btn-sm" onclick="ClientMessagesView.scrollToHistory()" title="View History">
-              <span>📜 History</span>
+            <button class="btn btn-ghost btn-sm" onclick="ClientMessagesView.scrollToHistory()" title="View History" style="height: 34px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>History</span>
             </button>
           </div>
         </div>
 
-        <!-- 2. TWO-COLUMN STUDIO GRID -->
+        <!-- 2. TWO-COLUMN STUDIO GRID (42/58 split) -->
         <style>
           .client-messages-layout-grid {
             display: grid;
-            grid-template-columns: minmax(360px, 5fr) minmax(440px, 7fr);
-            gap: 1.25rem;
-            margin-bottom: 1.5rem;
+            grid-template-columns: 42fr 58fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
             align-items: start;
           }
           @media (max-width: 1024px) {
@@ -232,6 +232,7 @@ const ClientMessagesView = {
               grid-template-columns: 1fr;
             }
           }
+          textarea.form-control { height: auto; }
         </style>
         <div class="client-messages-layout-grid">
           
@@ -239,15 +240,15 @@ const ClientMessagesView = {
           <div class="flex flex-col gap-3">
             
             <!-- Setup Card -->
-            <div class="card" style="padding: 1rem; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-              <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem;">
+            <div class="card" style="padding: 0.85rem;">
+              <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.65rem;">
                 1. Select Case &amp; Type
               </div>
 
               <!-- Select Case -->
-              <div class="form-group" style="margin-bottom: 0.65rem;">
-                <label class="form-label required">Select Case</label>
-                <select class="form-control form-control-sm" style="font-weight: 600;" onchange="ClientMessagesView.handleCaseChange(this.value)">
+              <div class="form-group" style="margin-bottom: 0.6rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">Select Case</label>
+                <select class="form-control" style="font-weight: 600; height: 40px; font-size: 0.84rem;" onchange="ClientMessagesView.handleCaseChange(this.value)">
                   ${cases.length === 0 ? `<option value="">No registered cases found</option>` : ''}
                   ${cases.map(c => `
                     <option value="${c.id}" ${c.id === this.selectedCaseId ? 'selected' : ''}>
@@ -258,9 +259,9 @@ const ClientMessagesView = {
               </div>
 
               <!-- Select Client -->
-              <div class="form-group" style="margin-bottom: 0.65rem;">
-                <label class="form-label required">Select Client</label>
-                <select class="form-control form-control-sm" onchange="ClientMessagesView.handleClientChange(this.value)">
+              <div class="form-group" style="margin-bottom: 0.6rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">Select Client</label>
+                <select class="form-control" style="height: 40px; font-size: 0.84rem;" onchange="ClientMessagesView.handleClientChange(this.value)">
                   ${clients.map(cl => `
                     <option value="${cl.id}" ${cl.id === this.selectedClientId ? 'selected' : ''}>
                       ${cl.name} (${cl.type || 'Client'})
@@ -270,166 +271,175 @@ const ClientMessagesView = {
               </div>
 
               <!-- Compact Matter Info -->
-              <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 0.5rem 0.75rem; font-size: 0.76rem; margin-bottom: 0.75rem; color: #475569;">
-                <strong>${selectedCase.title || selectedCase.caseTitle || 'Case File'}</strong> · <span>Court: ${selectedCase.court || 'High Court'}</span> · <span>Assigned: ${selectedCase.lawyer || 'Advocate'}</span>
+              <div style="background: var(--color-surface-subtle); border: 1px solid var(--color-border-subtle); border-radius: 8px; padding: 0.4rem 0.65rem; font-size: 0.74rem; margin-bottom: 0.65rem; color: #475569; line-height: 1.4;">
+                <strong>${selectedCase.title || selectedCase.caseTitle || 'Case File'}</strong> · Court: ${selectedCase.court || 'High Court'} · Assigned: ${selectedCase.lawyer || 'Advocate'}
               </div>
 
-              <!-- Message Type (9 Categories) -->
-              <div class="form-group" style="margin-bottom: 1rem;">
-                <label class="form-label required">Message Type</label>
-                <select class="form-control" style="font-size: 0.88rem; font-weight: 600;" onchange="ClientMessagesView.handleMessageTypeChange(this.value)">
+              <!-- Message Type -->
+              <div class="form-group" style="margin-bottom: 0.65rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">Message Type</label>
+                <select class="form-control" style="font-size: 0.84rem; font-weight: 600; height: 40px;" onchange="ClientMessagesView.handleMessageTypeChange(this.value)">
                   ${ClientMessageTemplates.MESSAGE_TYPES.map(t => `
                     <option value="${t.id}" ${t.id === this.selectedMessageType ? 'selected' : ''}>
-                      ${t.icon} ${t.label}
+                      ${t.label}
                     </option>
                   `).join('')}
                 </select>
-                <div style="font-size: 0.74rem; color: var(--color-text-muted); margin-top: 0.25rem;">
+                <div style="font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.15rem;">
                   ${(ClientMessageTemplates.MESSAGE_TYPES.find(t => t.id === this.selectedMessageType) || {}).purpose}
                 </div>
               </div>
 
               <!-- Language & Channel Selection -->
-              <div class="grid grid-cols-2 gap-3" style="margin-bottom: 1rem;">
+              <div class="grid grid-cols-2 gap-3" style="margin-bottom: 0.65rem;">
                 <div>
-                  <label class="form-label required">Language</label>
-                  <div style="display: flex; gap: 0.5rem;">
-                    <button type="button" class="btn btn-sm ${this.selectedLanguage === 'English' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.78rem;" onclick="ClientMessagesView.handleLanguageChange('English')">
+                  <label class="form-label required" style="font-size: 0.76rem; margin-bottom: 4px; display: block;">Language</label>
+                  <div style="display: flex; gap: 0.35rem;">
+                    <button type="button" class="btn btn-sm ${this.selectedLanguage === 'English' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.76rem; height: 34px;" onclick="ClientMessagesView.handleLanguageChange('English')">
                       English
                     </button>
-                    <button type="button" class="btn btn-sm ${this.selectedLanguage === 'Kiswahili' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.78rem;" onclick="ClientMessagesView.handleLanguageChange('Kiswahili')">
+                    <button type="button" class="btn btn-sm ${this.selectedLanguage === 'Kiswahili' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.76rem; height: 34px;" onclick="ClientMessagesView.handleLanguageChange('Kiswahili')">
                       Kiswahili
                     </button>
                   </div>
                 </div>
 
                 <div>
-                  <label class="form-label required">Delivery Channel</label>
-                  <div style="display: flex; gap: 0.35rem;">
-                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'Email' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.74rem; padding: 0.35rem 0.25rem;" onclick="ClientMessagesView.handleChannelChange('Email')" title="Automatic Gmail SMTP">
-                      ✉️ Email
+                  <label class="form-label required" style="font-size: 0.76rem; margin-bottom: 4px; display: block;">Delivery Channel</label>
+                  <div style="display: flex; gap: 0.25rem;">
+                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'Email' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.72rem; padding: 0.25rem 0.2rem; height: 34px;" onclick="ClientMessagesView.handleChannelChange('Email')" title="Gmail SMTP">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                      Email
                     </button>
-                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'WhatsApp' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.74rem; padding: 0.35rem 0.25rem;" onclick="ClientMessagesView.handleChannelChange('WhatsApp')" title="Manual WhatsApp Dispatch">
-                      💬 WhatsApp
+                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'WhatsApp' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.72rem; padding: 0.25rem 0.2rem; height: 34px;" onclick="ClientMessagesView.handleChannelChange('WhatsApp')" title="Manual WhatsApp">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                      WA
                     </button>
-                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'SMS' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.74rem; padding: 0.35rem 0.25rem;" onclick="ClientMessagesView.handleChannelChange('SMS')" title="Manual SMS Dispatch">
-                      📱 SMS
+                    <button type="button" class="btn btn-sm ${this.selectedChannel === 'SMS' ? 'btn-gold' : 'btn-secondary'}" style="flex: 1; font-size: 0.72rem; padding: 0.25rem 0.2rem; height: 34px;" onclick="ClientMessagesView.handleChannelChange('SMS')" title="Manual SMS">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                      SMS
                     </button>
                   </div>
                 </div>
               </div>
 
               <!-- Timing: Send now vs Schedule -->
-              <div class="form-group" style="margin-bottom: 1rem;">
-                <label class="form-label">Dispatch Timing</label>
-                <div class="flex items-center gap-4" style="margin-bottom: 0.4rem;">
-                  <label style="font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+              <div class="form-group" style="margin-bottom: 0.65rem;">
+                <label class="form-label" style="font-size: 0.76rem;">Dispatch Timing</label>
+                <div class="flex items-center gap-4" style="margin-bottom: 0.25rem;">
+                  <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
                     <input type="radio" name="dispatchTiming" value="now" ${this.sendTiming === 'now' ? 'checked' : ''} onchange="ClientMessagesView.sendTiming = 'now'; App.refreshCurrentView();">
                     Send Immediately
                   </label>
-                  <label style="font-size: 0.82rem; display: flex; align-items: center; gap: 0.35rem; cursor: pointer;">
+                  <label style="font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem; cursor: pointer;">
                     <input type="radio" name="dispatchTiming" value="schedule" ${this.sendTiming === 'schedule' ? 'checked' : ''} onchange="ClientMessagesView.sendTiming = 'schedule'; App.refreshCurrentView();">
                     Schedule for Later
                   </label>
                 </div>
                 ${this.sendTiming === 'schedule' ? `
-                  <input type="datetime-local" class="form-control" style="font-size: 0.82rem;" value="${this.scheduledDateTime}" onchange="ClientMessagesView.scheduledDateTime = this.value">
+                  <input type="datetime-local" class="form-control" style="font-size: 0.8rem; height: 38px;" value="${this.scheduledDateTime}" onchange="ClientMessagesView.scheduledDateTime = this.value">
                 ` : ''}
               </div>
 
-              <!-- DYNAMIC FORM FIELDS (Adjusts per Message Type) -->
-              <div style="border-top: 1px dashed var(--color-border); padding-top: 0.85rem; margin-top: 0.5rem;">
-                <div style="font-size: 0.78rem; font-weight: 700; color: #1E293B; margin-bottom: 0.65rem;">
-                  Specific Event &amp; Purpose Details:
+              <!-- DYNAMIC FORM FIELDS -->
+              <div style="border-top: 1px dashed var(--color-border); padding-top: 0.65rem; margin-top: 0.35rem;">
+                <div style="font-size: 0.76rem; font-weight: 700; color: #1E293B; margin-bottom: 0.5rem;">
+                  Event &amp; Purpose Details:
                 </div>
                 ${this.renderDynamicFormFields(selectedCase)}
               </div>
 
               <!-- GENERATE DRAFT BUTTON -->
-              <button id="btn-generate-draft" class="btn btn-gold" style="width: 100%; margin-top: 1.25rem; font-weight: 700; padding: 0.65rem;" onclick="ClientMessagesView.generateDraft(true)" ${this.isGenerating ? 'disabled' : ''}>
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.4rem;"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              <button id="btn-generate-draft" class="btn btn-gold" style="width: 100%; margin-top: 0.85rem; font-weight: 700; height: 40px; font-size: 0.84rem;" onclick="ClientMessagesView.generateDraft(true)" ${this.isGenerating ? 'disabled' : ''}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                 Generate Draft
               </button>
             </div>
           </div>
 
-          <!-- RIGHT COLUMN: DRAFT EDITOR & DELIVERY ACTIONS (7 Cols) -->
-          <div class="flex flex-col gap-4">
+          <!-- RIGHT COLUMN: DRAFT EDITOR & DELIVERY (Hero) -->
+          <div class="flex flex-col gap-3">
             
-            <div class="card" style="padding: 1.25rem; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; min-height: 100%;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.65rem;">
+            <div class="card" style="padding: 1rem; display: flex; flex-direction: column; min-height: 100%; border: 1.5px solid var(--color-border);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle); padding-bottom: 0.5rem;">
                 <div>
-                  <div style="font-size: 0.82rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em;">
-                    2. Draft Review &amp; Delivery Editor
+                  <div style="font-size: 0.78rem; font-weight: 700; color: var(--color-primary); text-transform: uppercase; letter-spacing: 0.04em;">
+                    2. Draft Review &amp; Delivery
                   </div>
-                  <div style="font-size: 0.74rem; color: var(--color-text-muted);">
-                    Status: <span class="badge ${this.getStatusBadgeClass(this.currentStatus)}" style="font-size: 0.7rem;">${this.currentStatus}</span>
+                  <div style="font-size: 0.72rem; color: var(--color-text-muted); margin-top: 0.15rem;">
+                    Status: <span class="badge ${this.getStatusBadgeClass(this.currentStatus)}" style="font-size: 0.68rem; padding: 0.1rem 0.4rem;">${this.currentStatus}</span>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-2">
-                  <span style="font-size: 0.74rem; color: #64748B; font-family: var(--font-mono);">${charCount} characters</span>
-                  <button type="button" class="btn btn-ghost btn-sm" onclick="ClientMessagesView.generateDraft(true)" title="Regenerate message draft">
-                    🔄 Regenerate
+                  <span style="font-size: 0.72rem; color: #64748B; font-family: var(--font-mono);">${charCount} chars</span>
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="ClientMessagesView.generateDraft(true)" title="Regenerate" style="height: 30px; font-size: 0.74rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                    Regenerate
                   </button>
                 </div>
               </div>
 
-              <!-- Missing Information Warnings Banner -->
+              <!-- Missing Information Warnings -->
               ${warnings.length > 0 ? `
-                <div class="alert alert-warning" style="background: #FFFBEB; border: 1.5px solid #FCD34D; border-radius: 6px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.78rem; color: #92400E;">
-                  <div style="font-weight: 700; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.3rem;">
-                    <span>⚠️</span> Missing Information Required:
+                <div style="background: #FFFBEB; border: 1px solid #FCD34D; border-radius: 8px; padding: 0.5rem 0.75rem; margin-bottom: 0.65rem; font-size: 0.76rem; color: #92400E;">
+                  <div style="font-weight: 700; margin-bottom: 0.15rem; display: flex; align-items: center; gap: 0.3rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    Missing Information:
                   </div>
-                  <ul style="margin: 0; padding-left: 1.2rem;">
+                  <ul style="margin: 0; padding-left: 1.2rem; font-size: 0.74rem;">
                     ${warnings.map(w => `<li>${w}</li>`).join('')}
                   </ul>
                 </div>
               ` : ''}
 
               <!-- Recipient Input -->
-              <div class="form-group" style="margin-bottom: 0.75rem;">
-                <label class="form-label required">${this.selectedChannel === 'Email' ? 'Recipient Email Address' : 'Recipient Phone Number'}</label>
-                <input type="text" class="form-control" style="font-size: 0.86rem; font-family: var(--font-mono);" value="${this.currentRecipient}" placeholder="${this.selectedChannel === 'Email' ? 'client@example.com' : '+255 754 000 000'}" oninput="ClientMessagesView.currentRecipient = this.value">
+              <div class="form-group" style="margin-bottom: 0.6rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">${this.selectedChannel === 'Email' ? 'Recipient Email' : 'Recipient Phone'}</label>
+                <input type="text" class="form-control" style="font-size: 0.84rem; font-family: var(--font-mono); height: 40px;" value="${this.currentRecipient}" placeholder="${this.selectedChannel === 'Email' ? 'client@example.com' : '+255 754 000 000'}" oninput="ClientMessagesView.currentRecipient = this.value">
               </div>
 
               <!-- Subject Input -->
-              <div class="form-group" style="margin-bottom: 0.75rem;">
-                <label class="form-label required">Message Subject</label>
-                <input type="text" class="form-control" style="font-size: 0.88rem; font-weight: 600;" value="${this.currentSubject}" oninput="ClientMessagesView.currentSubject = this.value">
+              <div class="form-group" style="margin-bottom: 0.6rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">Subject</label>
+                <input type="text" class="form-control" style="font-size: 0.84rem; font-weight: 600; height: 40px;" value="${this.currentSubject}" oninput="ClientMessagesView.currentSubject = this.value">
               </div>
 
-              <!-- Message Textarea -->
-              <div class="form-group" style="flex: 1; display: flex; flex-direction: column; margin-bottom: 1rem;">
-                <label class="form-label required">Editable Message Body</label>
-                <textarea id="client-message-textarea" class="form-control" style="flex: 1; min-height: 240px; font-size: 0.86rem; line-height: 1.5; resize: vertical; font-family: var(--font-sans);" oninput="ClientMessagesView.currentMessageBody = this.value">${this.currentMessageBody}</textarea>
+              <!-- Message Textarea (Hero) -->
+              <div class="form-group" style="flex: 1; display: flex; flex-direction: column; margin-bottom: 0.75rem;">
+                <label class="form-label required" style="font-size: 0.76rem;">Message Body</label>
+                <textarea id="client-message-textarea" class="form-control" style="flex: 1; min-height: 220px; font-size: 0.84rem; line-height: 1.55; resize: vertical; border: 1.5px solid var(--color-border); border-radius: 10px; padding: 0.75rem; background: var(--color-surface-subtle);" oninput="ClientMessagesView.currentMessageBody = this.value">${this.currentMessageBody}</textarea>
               </div>
 
               <!-- Actions Toolbar -->
-              <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; border-top: 1px solid #E2E8F0; padding-top: 0.85rem;">
-                <div class="flex items-center gap-2">
-                  <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.saveDraft()" title="Save current draft locally and to database">
-                    💾 Save Draft
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; border-top: 1px solid var(--color-border-subtle); padding-top: 0.65rem;">
+                <div class="flex items-center gap-1.5">
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.saveDraft()" title="Save draft" style="height: 32px; font-size: 0.76rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                    Save
                   </button>
-                  <button type="button" class="btn btn-ghost btn-sm" onclick="ClientMessagesView.previewModal()" title="Preview how message looks">
-                    👁️ Preview
+                  <button type="button" class="btn btn-ghost btn-sm" onclick="ClientMessagesView.previewModal()" title="Preview" style="height: 32px; font-size: 0.76rem;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    Preview
                   </button>
                 </div>
 
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1.5">
                   ${!isAdmin && (isClerk || !isSenior) ? `
-                    <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" title="Submit to Senior Lawyer for review">
-                      📝 Send for Approval
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" title="Submit for review" style="height: 32px; font-size: 0.76rem;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                      For Approval
                     </button>
                   ` : ''}
 
                   ${isSenior && this.currentStatus === 'Pending Approval' ? `
-                    <button type="button" class="btn btn-secondary btn-sm" style="color: #059669; border-color: #A7F3D0; background: #ECFDF5;" onclick="ClientMessagesView.approveMessage()" title="Approve this draft">
-                      ✅ Approve Message
+                    <button type="button" class="btn btn-secondary btn-sm" style="color: #059669; border-color: #A7F3D0; background: #ECFDF5; height: 32px; font-size: 0.76rem;" onclick="ClientMessagesView.approveMessage()" title="Approve">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                      Approve
                     </button>
                   ` : ''}
 
-                  <!-- Primary Send Action Button -->
+                  <!-- Primary Send Action -->
                   ${this.renderSendButton(role)}
                 </div>
               </div>
@@ -439,51 +449,51 @@ const ClientMessagesView = {
 
         </div>
 
-        <!-- 3. BOTTOM SECTION: RECENT CLIENT COMMUNICATIONS TABLE -->
-        <div id="client-comms-history-section" class="card" style="padding: 1.25rem; border: 1px solid var(--color-border); box-shadow: var(--shadow-sm);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.75rem;">
+        <!-- 3. BOTTOM: RECENT COMMUNICATIONS TABLE -->
+        <div id="client-comms-history-section" class="card" style="padding: 1rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; gap: 0.75rem;">
             <div>
-              <h3 style="font-size: 1.1rem; color: var(--color-primary); font-weight: 700; margin: 0;">
-                Recent Client Communications &amp; Dispatch History
+              <h3 style="font-size: 0.95rem; color: var(--color-primary); font-weight: 700; margin: 0;">
+                Recent Communications
               </h3>
-              <p style="font-size: 0.78rem; color: var(--color-text-muted); margin: 0.15rem 0 0 0;">
-                Permanent SOC-2 audit log of case correspondence, delivery channels, approval states and dispatch timestamps.
+              <p style="font-size: 0.74rem; color: var(--color-text-muted); margin: 0.1rem 0 0 0;">
+                SOC-2 audit log of case correspondence and dispatch timestamps.
               </p>
             </div>
 
             <!-- Filters -->
             <div class="flex items-center gap-2 flex-wrap">
-              <input type="text" class="form-control form-control-sm" placeholder="Search history..." style="width: 180px; font-size: 0.78rem;" value="${this.historySearchQuery}" oninput="ClientMessagesView.historySearchQuery = this.value; App.refreshCurrentView();">
+              <input type="text" class="form-control" placeholder="Search..." style="width: 160px; font-size: 0.76rem; height: 34px;" value="${this.historySearchQuery}" oninput="ClientMessagesView.historySearchQuery = this.value; App.refreshCurrentView();">
 
-              <select class="form-control form-control-sm" style="width: auto; font-size: 0.78rem;" onchange="ClientMessagesView.historyFilterStatus = this.value; App.refreshCurrentView();">
+              <select class="form-control" style="width: auto; font-size: 0.76rem; height: 34px;" onchange="ClientMessagesView.historyFilterStatus = this.value; App.refreshCurrentView();">
                 <option value="all">All Statuses</option>
                 <option value="Sent" ${this.historyFilterStatus === 'Sent' ? 'selected' : ''}>Sent</option>
                 <option value="Draft" ${this.historyFilterStatus === 'Draft' ? 'selected' : ''}>Draft</option>
-                <option value="Pending Approval" ${this.historyFilterStatus === 'Pending Approval' ? 'selected' : ''}>Pending Approval</option>
+                <option value="Pending Approval" ${this.historyFilterStatus === 'Pending Approval' ? 'selected' : ''}>Pending</option>
                 <option value="Approved" ${this.historyFilterStatus === 'Approved' ? 'selected' : ''}>Approved</option>
-                <option value="Confirmed Sent by Staff" ${this.historyFilterStatus === 'Confirmed Sent by Staff' ? 'selected' : ''}>Confirmed Sent</option>
+                <option value="Confirmed Sent by Staff" ${this.historyFilterStatus === 'Confirmed Sent by Staff' ? 'selected' : ''}>Confirmed</option>
                 <option value="Failed" ${this.historyFilterStatus === 'Failed' ? 'selected' : ''}>Failed</option>
               </select>
 
-              <button class="btn btn-secondary btn-sm" onclick="SLCMS_STATE.restoreClientMessages(); App.refreshCurrentView();" title="Refresh records">
-                🔄
+              <button class="btn btn-secondary btn-sm" onclick="SLCMS_STATE.restoreClientMessages(); App.refreshCurrentView();" title="Refresh" style="height: 34px; width: 34px; padding: 0; justify-content: center;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
               </button>
             </div>
           </div>
 
           <!-- History Table -->
           <div class="table-responsive">
-            <table class="data-table" style="width: 100%; font-size: 0.82rem;">
+            <table class="data-table" style="width: 100%; font-size: 0.8rem;">
               <thead>
-                <tr style="background: #F8FAFC; border-bottom: 2px solid #E2E8F0;">
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Date</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Client</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Matter</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Type</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Channel</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Prepared By</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: left;">Status</th>
-                  <th style="padding: 0.65rem 0.75rem; text-align: center; width: 90px;">Action</th>
+                <tr style="background: var(--color-surface-subtle); border-bottom: 2px solid var(--color-border);">
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Date</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Client</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Matter</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Type</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Channel</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Prepared By</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: left;">Status</th>
+                  <th style="padding: 0.5rem 0.65rem; text-align: center; width: 80px;">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -695,8 +705,9 @@ const ClientMessagesView = {
 
     if (this.sendTiming === 'schedule') {
       return `
-        <button type="button" class="btn btn-gold btn-sm" onclick="ClientMessagesView.scheduleMessage()" style="font-weight: 700;">
-          ⏰ Schedule Message
+        <button type="button" class="btn btn-gold btn-sm" onclick="ClientMessagesView.scheduleMessage()" style="font-weight: 700; height: 32px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Schedule
         </button>
       `;
     }
@@ -705,16 +716,18 @@ const ClientMessagesView = {
       // Permission Gate: Case outcome notices require Senior Lawyer approval
       if (requiresSeniorApproval && !isSenior && this.currentStatus !== 'Approved') {
         return `
-          <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" style="color: #B45309; border-color: #FCD34D;" title="Case outcomes require Senior Lawyer approval">
-            🔒 Submit for Senior Approval
+          <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" style="color: #B45309; border-color: #FCD34D; height: 32px; font-size: 0.76rem;" title="Requires Senior Lawyer approval">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Senior Approval
           </button>
         `;
       }
 
       if (isClerk && this.currentStatus !== 'Approved') {
         return `
-          <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" title="Clerk staff must submit messages for lawyer approval">
-            🔒 Submit for Approval
+          <button type="button" class="btn btn-secondary btn-sm" onclick="ClientMessagesView.sendForApproval()" title="Submit for lawyer approval" style="height: 32px; font-size: 0.76rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Submit for Approval
           </button>
         `;
       }

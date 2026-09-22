@@ -1176,18 +1176,18 @@ const App = {
 
               <!-- Quick Meta Chips: Staff ID, Department, Jurisdiction -->
               <div style="font-size: 0.8rem; color: #475569; margin-top: 0.4rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                <span>🆔 Staff ID: <strong style="color: #0F172A; font-family: var(--font-mono);">${staffId}</strong></span>
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px;"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2M15 12h2M7 16h10"/></svg> Staff ID: <strong style="color: #0F172A; font-family: var(--font-mono);">${staffId}</strong></span>
                 <span>•</span>
-                <span>🏛️ <strong id="profile-modal-header-dept">${department}</strong></span>
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px;"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M8 10h.01M16 10h.01M8 14h.01M16 14h.01"/></svg> <strong id="profile-modal-header-dept">${department}</strong></span>
                 <span>•</span>
-                <span>⚖️ <strong style="color: var(--color-gold);">${jurisdiction}</strong></span>
+                <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold); vertical-align: -1px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong style="color: var(--color-gold);">${jurisdiction}</strong></span>
               </div>
 
               <!-- Photo Controls -->
               <div style="margin-top: 0.65rem; display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
                 <input type="file" id="edit-user-avatar-file" accept="image/*" style="display:none;" onchange="App.handleAvatarFileUpload(event)">
                 <button type="button" class="btn btn-primary btn-sm" onclick="document.getElementById('edit-user-avatar-file').click()" style="padding: 0.28rem 0.65rem; font-size: 0.74rem;">
-                  📷 Upload Photo
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 0.2rem;"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> Upload Photo
                 </button>
                 <button type="button" class="btn btn-secondary btn-sm" onclick="App.togglePresetsGallery()" style="padding: 0.28rem 0.65rem; font-size: 0.74rem;">
                   Presets ▾
@@ -1225,7 +1225,7 @@ const App = {
         <!-- 1. ESSENTIAL PERSONAL & CONTACT INFORMATION -->
         <div style="background: #FFFFFF; border: 1.5px solid #E2E8F0; border-radius: 8px; padding: 1.1rem; margin-bottom: 1rem;">
           <div style="font-size: 0.8rem; font-weight: 700; color: #1E293B; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; border-bottom: 1px solid #E2E8F0; padding-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
-            <span style="color: var(--color-gold);">👤</span> Core Practitioner Information
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Core Practitioner Information
           </div>
           
           <div class="grid grid-cols-2 gap-3" style="margin-bottom: 0.75rem;">
@@ -1254,7 +1254,7 @@ const App = {
         <!-- 2. PROFESSIONAL CREDENTIALS & PRACTICE FOCUS -->
         <div style="background: #FFFBEB; border: 1.5px solid #FDE68A; border-radius: 8px; padding: 1.1rem; margin-bottom: 1rem;">
           <div style="font-size: 0.8rem; font-weight: 700; color: #92400E; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.75rem; border-bottom: 1px solid #FDE68A; padding-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
-            <span style="color: #D97706;">⚖️</span> Professional Assignment &amp; Credentials
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #D97706;"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> Professional Assignment &amp; Credentials
           </div>
 
           <div class="grid grid-cols-2 gap-3" style="margin-bottom: 0.75rem;">
@@ -1284,7 +1284,7 @@ const App = {
         <div style="background: #F0FDF4; border: 1.5px solid #BBF7D0; border-radius: 8px; padding: 0.85rem 1rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
           <div>
             <div style="font-size: 0.8rem; font-weight: 700; color: #166534; display: flex; align-items: center; gap: 0.35rem;">
-              <span>🔒</span> Zero-Trust Security &amp; Audit Compliance
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Zero-Trust Security &amp; Audit Compliance
             </div>
             <div style="font-size: 0.74rem; color: #15803D; margin-top: 0.2rem;">
               Authentication: <strong>Argon2id Hash Verified</strong> • Role Access: <strong>${u.role}</strong> • Assigned Matters: <strong>${(u.assignedCaseIds && u.assignedCaseIds.length) || 0} Active Cases</strong>
@@ -1588,7 +1588,7 @@ const App = {
       <div class="modal-header" style="background: linear-gradient(135deg, #7F1D1D, #450A0A); color: #FFFFFF;">
         <div>
           <h3 class="modal-title" style="color: #FFFFFF; display: flex; align-items: center; gap: 0.5rem; font-size: 1.15rem;">
-            <span>🛡️</span> Security Authorization Policy
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Security Authorization Policy
           </h3>
           <p style="font-size: 0.78rem; color: #FECACA; margin-top: 0.2rem;">
             Strict Role-Based Access Control (RBAC) & Ethical Wall Enforcement
@@ -1617,8 +1617,8 @@ const App = {
           <div style="color: #64748B; margin-bottom: 0.25rem;"><strong>Active Session User:</strong> ${SLCMS_STATE.currentUser.name}</div>
           <div style="color: #64748B; margin-bottom: 0.25rem;"><strong>Assigned Role:</strong> <span class="badge badge-neutral" style="font-size: 0.72rem;">${SLCMS_STATE.currentUser.roleLabel || SLCMS_STATE.currentUser.role}</span></div>
           ${details ? `<div style="color: #64748B; margin-top: 0.35rem; font-style: italic;">Note: ${details}</div>` : ''}
-          <div style="color: #94A3B8; font-size: 0.72rem; margin-top: 0.5rem;">
-            🔒 <em>This unauthorized attempt has been recorded in the firm's immutable security audit log.</em>
+          <div style="color: #94A3B8; font-size: 0.72rem; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.3rem;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <em>This unauthorized attempt has been recorded in the firm's immutable security audit log.</em>
           </div>
         </div>
       </div>
@@ -1972,10 +1972,10 @@ const App = {
     });
 
     const getIcon = (type) => {
-      if (type === 'danger') return '🏛️';
-      if (type === 'warning') return '💳';
-      if (type === 'info') return '📄';
-      return '📅';
+      if (type === 'danger') return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`;
+      if (type === 'warning') return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>`;
+      if (type === 'info') return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+      return `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`;
     };
 
     const getActionLabel = (link) => {
@@ -2025,7 +2025,7 @@ const App = {
             Unread (${unreadCount})
           </button>
           <button class="notif-tab-btn ${this.currentNotifFilter === 'urgent' ? 'active' : ''}" onclick="App.openNotifications('urgent')">
-            ⚠️ Urgent & Hearings
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: -1px; margin-right: 0.2rem;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Urgent & Hearings
           </button>
         </div>
 
@@ -2033,7 +2033,9 @@ const App = {
         <div class="notif-cards-list">
           ${filtered.length === 0 ? `
             <div style="padding: 2.5rem 1rem; text-align: center; color: var(--color-text-muted); font-size: 0.85rem;">
-              <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">🎉</div>
+              <div style="font-size: 1.75rem; margin-bottom: 0.5rem; display: flex; justify-content: center;">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
               No notifications matching the selected filter.
             </div>
           ` : filtered.map(n => `
@@ -2075,7 +2077,9 @@ const App = {
 
         <!-- Footer -->
         <div class="notif-panel-footer">
-          <span>🔔 Automatic e-Courts & Statutory Docket sync active</span>
+          <span style="display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Automatic e-Courts & Statutory Docket sync active
+          </span>
           <button class="btn btn-ghost btn-sm" style="font-size: 0.72rem; color: var(--color-text-secondary);" onclick="App.clearAllNotifications()">
             Dismiss All
           </button>

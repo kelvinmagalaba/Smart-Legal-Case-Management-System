@@ -96,7 +96,7 @@ const SettingsView = {
         <!-- 2. AI NOTICE BANNER -->
         <div class="alert alert-gold" style="margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
           <div class="flex items-center gap-2.5">
-            <span style="font-size: 1.3rem;">⚖️</span>
+            <span style="color: var(--color-gold); flex-shrink: 0;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg></span>
             <div>
               <strong>SLCMS AI Professional Notice:</strong>
               <div style="font-size: 0.82rem; color: var(--color-text-secondary); margin-top: 0.15rem;">
@@ -171,7 +171,7 @@ const SettingsView = {
                 <div class="flex flex-col gap-1.5" style="font-size: 0.82rem; color: var(--color-text-secondary);">
                   ${this.firmProfile.courts.map(c => `
                     <div class="flex items-center gap-2">
-                      <span style="color: var(--color-gold);">🏛️</span>
+                      <span style="color: var(--color-gold); flex-shrink: 0;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg></span>
                       <span>${c}</span>
                     </div>
                   `).join('')}

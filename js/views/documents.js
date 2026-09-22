@@ -105,7 +105,7 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
         case 'Failed':
           return '<span class="badge badge-lost">Failed</span>';
         case 'Archived':
-          return '<span class="badge badge-neutral" style="background:#E2E8F0;color:#475569;">📁 Archived</span>';
+          return '<span class="badge badge-neutral" style="background:#E2E8F0;color:#475569;display:inline-flex;align-items:center;gap:4px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Archived</span>';
         default:
           return `<span class="badge badge-active">${status}</span>`;
       }
@@ -137,10 +137,10 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
         <!-- Group Selector Tabs -->
         <div class="tabs-nav" style="margin-bottom: 1.25rem;">
           <button class="tab-btn ${this.activeGroup === 'client-docs' ? 'active' : ''}" onclick="DocumentsView.switchGroup('client-docs')">
-            <span>📁 Client Case Documents (${SLCMS_STATE.documents.length})</span>
+            <span class="flex items-center gap-1.5"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Client Case Documents (${SLCMS_STATE.documents.length})</span>
           </button>
           <button class="tab-btn ${this.activeGroup === 'library-judgments' ? 'active' : ''}" onclick="DocumentsView.switchGroup('library-judgments')">
-            <span>⚖️ Legal Library Judgments (${SLCMS_STATE.tanzaniaJudgments.length})</span>
+            <span class="flex items-center gap-1.5"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg> Legal Library Judgments (${SLCMS_STATE.tanzaniaJudgments.length})</span>
           </button>
         </div>
 
@@ -149,29 +149,29 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
           <div class="card animate-fade" style="margin-bottom: 1.25rem; padding: 1rem 1.25rem; border-left: 4px solid var(--color-gold); background: linear-gradient(135deg, rgba(16,42,67,0.03) 0%, rgba(200,155,60,0.08) 100%);">
             <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
               <div class="flex items-center gap-2">
-                <span style="font-size: 1.15rem;">👑</span>
+                <span style="color: var(--color-gold);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
                 <div>
                   <strong style="color: var(--color-primary); font-size: 0.92rem;">Administrator Document &amp; Storage Governance</strong>
                   <span class="badge badge-confidential" style="font-size: 0.68rem; margin-left: 0.35rem;">Audit Enforced</span>
                 </div>
               </div>
               <div class="flex items-center gap-1.5 flex-wrap">
-                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem;" onclick="DocumentsView.filterScannedPDFs()">
-                  🔍 Identify Scanned PDFs
+                <button class="btn btn-secondary btn-sm flex items-center gap-1" style="font-size: 0.76rem;" onclick="DocumentsView.filterScannedPDFs()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Identify Scanned PDFs
                 </button>
-                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem;" onclick="DocumentsView.runBatchOCR()">
-                  ⚡ Retry Failed OCR (${(SLCMS_STATE.documents || []).filter(d => d.status === 'Failed' || d.status === 'Processing').length})
+                <button class="btn btn-secondary btn-sm flex items-center gap-1" style="font-size: 0.76rem;" onclick="DocumentsView.runBatchOCR()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Retry Failed OCR (${(SLCMS_STATE.documents || []).filter(d => d.status === 'Failed' || d.status === 'Processing').length})
                 </button>
-                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem;" onclick="DocumentsView.openDuplicatesModal()">
-                  📑 Detect Duplicate Files
+                <button class="btn btn-secondary btn-sm flex items-center gap-1" style="font-size: 0.76rem;" onclick="DocumentsView.openDuplicatesModal()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Detect Duplicate Files
                 </button>
-                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem;" onclick="DocumentsView.openStorageLimitsModal()">
-                  📂 Permitted Types &amp; Storage Limits
+                <button class="btn btn-secondary btn-sm flex items-center gap-1" style="font-size: 0.76rem;" onclick="DocumentsView.openStorageLimitsModal()">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Permitted Types &amp; Storage Limits
                 </button>
               </div>
             </div>
-            <div style="font-size: 0.76rem; color: var(--color-text-secondary); line-height: 1.4; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem;">
-              🔒 <strong>Privilege Protection Policy:</strong> Opening confidential or privileged client exhibits as Administrator creates an immutable security audit trail.
+            <div style="font-size: 0.76rem; color: var(--color-text-secondary); line-height: 1.4; border-top: 1px solid rgba(0,0,0,0.06); padding-top: 0.4rem; display: flex; align-items: center; gap: 0.35rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span><strong>Privilege Protection Policy:</strong> Opening confidential or privileged client exhibits as Administrator creates an immutable security audit trail.</span>
             </div>
           </div>
         ` : ''}
@@ -279,29 +279,29 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
                         Preview
                       </button>
                       <button class="btn btn-ghost btn-sm" onclick="DocumentsView.downloadDocument('${d.id}')" title="Download Document">
-                        ⬇
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                       </button>
-                      <button class="btn btn-ghost btn-sm" onclick="DocumentsView.openVersionsModal('${d.id}')" title="Document Versions & Replace without destroying earlier version">
-                        📜 Versions
+                      <button class="btn btn-ghost btn-sm flex items-center gap-1" onclick="DocumentsView.openVersionsModal('${d.id}')" title="Document Versions & Replace without destroying earlier version">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg> Versions
                       </button>
-                      <button class="btn btn-ghost btn-sm" onclick="DocumentsView.openAccessHistoryModal('${d.id}')" title="Document Access & Audit History">
-                        🛡️ History
+                      <button class="btn btn-ghost btn-sm flex items-center gap-1" onclick="DocumentsView.openAccessHistoryModal('${d.id}')" title="Document Access & Audit History">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> History
                       </button>
                       <button class="btn btn-ghost btn-sm" onclick="DocumentsView.openAttachModal('${d.id}')" title="Attach to Case">
-                        📎
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
                       </button>
-                      <button class="btn btn-ghost btn-sm" onclick="DocumentsView.runOCR('${d.id}')" title="Run OCR Processing">
-                        🔍 OCR
+                      <button class="btn btn-ghost btn-sm flex items-center gap-1" onclick="DocumentsView.runOCR('${d.id}')" title="Run OCR Processing">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> OCR
                       </button>
-                      <button class="btn btn-ghost btn-sm text-gold" onclick="DocumentsView.openVerifyModal('${d.id}')" title="Verify Extracted Text">
-                        ✓ Verify
+                      <button class="btn btn-ghost btn-sm text-gold flex items-center gap-1" onclick="DocumentsView.openVerifyModal('${d.id}')" title="Verify Extracted Text">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Verify
                       </button>
                       ${isAdmin ? `
-                        <button class="btn btn-ghost btn-sm" onclick="DocumentsView.openEditMetadataModal('${d.id}')" title="Correct Basic Metadata">📝</button>
+                        <button class="btn btn-ghost btn-sm" onclick="DocumentsView.openEditMetadataModal('${d.id}')" title="Correct Basic Metadata"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
                         <button class="btn btn-ghost btn-sm" onclick="DocumentsView.toggleAIIndex('${d.id}')" title="${d.aiIndexed === false ? 'Add to AI Index' : 'Remove from AI Search Index'}">
-                          ${d.aiIndexed === false ? '➕ AI' : '🤖 AI'}
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg>
                         </button>
-                        <button class="btn btn-ghost btn-sm text-danger" onclick="DocumentsView.archiveDocument('${d.id}')" title="Archive Document">📦</button>
+                        <button class="btn btn-ghost btn-sm text-danger" onclick="DocumentsView.archiveDocument('${d.id}')" title="Archive Document"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></button>
                       ` : ''}
                     </div>
                   </td>
@@ -364,7 +364,10 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
     if (isAdmin && isPrivileged && !adminOverrideConfirmed) {
       App.openModal(`
         <div class="modal-header" style="background: linear-gradient(135deg, #7F1D1D, #450A0A); color: #FFFFFF;">
-          <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.15rem;">🔒 Confidential Document Access Authorization</h3>
+          <h3 class="modal-title flex items-center gap-2" style="color: #FFFFFF; font-size: 1.15rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Confidential Document Access Authorization
+          </h3>
           <button class="btn btn-ghost btn-sm" onclick="App.closeModal()" style="color: #FFFFFF;">✕</button>
         </div>
         <div class="modal-body" style="padding: 1.5rem;">
@@ -433,8 +436,8 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
           <p style="text-indent: 2rem; margin-bottom: 1rem;">
             ${doc.content || 'BE IT REMEMBERED that on the matter coming up for substantive hearing and judicial consideration, the legal counsel appeared and advanced structured arguments regarding the statutory interpretation and governing Tanzanian precedents...'}
           </p>
-          <div class="alert alert-info" style="font-family: var(--font-primary); font-size: 0.8rem; margin-top: 2rem;">
-            🔒 Verified Digital Watermark: Encrypted document archive (SLCMS Audit Hash: 0x89F2A1).
+          <div class="alert alert-info" style="font-family: var(--font-primary); font-size: 0.8rem; margin-top: 2rem; display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Verified Digital Watermark: Encrypted document archive (SLCMS Audit Hash: 0x89F2A1).
           </div>
         </div>
       </div>
@@ -442,7 +445,7 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
         <button class="btn btn-secondary" onclick="App.closeModal()">Close Preview</button>
         <div class="flex items-center gap-2">
           ${doc.pdfUrl ? `<a href="${doc.pdfUrl}" target="_blank" class="btn btn-secondary">Open Official TanzLII ↗</a>` : ''}
-          <button class="btn btn-gold" onclick="DocumentsView.downloadDocument('${doc.id}')">⬇ Download File (${doc.size})</button>
+          <button class="btn btn-gold flex items-center gap-1" onclick="DocumentsView.downloadDocument('${doc.id}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download File (${doc.size})</button>
         </div>
       </div>
     `, 'modal-lg');
@@ -711,7 +714,10 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
     const docs = SLCMS_STATE.documents || [];
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">📑 Detect &amp; Resolve Duplicate Documents</h3>
+        <h3 class="modal-title flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          Detect &amp; Resolve Duplicate Documents
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -742,7 +748,10 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
   openStorageLimitsModal() {
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">📂 Permitted File Types &amp; Storage Quotas</h3>
+        <h3 class="modal-title flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          Permitted File Types &amp; Storage Quotas
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -803,7 +812,10 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
 
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">📝 Correct Document Metadata (Administrator)</h3>
+        <h3 class="modal-title flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          Correct Document Metadata (Administrator)
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -933,15 +945,19 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
       <div class="modal-header" style="background: linear-gradient(135deg, #102A43, #0B1F33); color: #FFFFFF;">
         <div>
           <div style="font-size: 0.72rem; color: var(--color-gold); font-weight: 700; text-transform: uppercase;">Version Control &amp; Revision History</div>
-          <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 0.2rem;">📜 Document Versions: ${doc.title}</h3>
+          <h3 class="modal-title flex items-center gap-2" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 0.2rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+            Document Versions: ${doc.title}
+          </h3>
           <div style="font-size: 0.78rem; color: rgba(255,255,255,0.7);">${doc.caseNumber} &middot; Current Active: <strong>${doc.version || 'v1.0'}</strong></div>
         </div>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()" style="color: #FFFFFF;">✕</button>
       </div>
 
       <div class="modal-body" style="padding: 1.5rem;">
-        <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 1.25rem; line-height: 1.5;">
-          ℹ️ <strong>Legal Revision Protocol:</strong> When replacing a pleading, affidavit, or exhibit with an amended version, SLCMS preserves earlier versions immutably. Earlier versions can be previewed or retrieved at any time.
+        <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 1.25rem; line-height: 1.5; display: flex; align-items: flex-start; gap: 0.35rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span><strong>Legal Revision Protocol:</strong> When replacing a pleading, affidavit, or exhibit with an amended version, SLCMS preserves earlier versions immutably. Earlier versions can be previewed or retrieved at any time.</span>
         </div>
 
         <h4 style="font-size: 0.92rem; color: var(--color-primary); font-weight: 700; margin-bottom: 0.5rem;">Revision History Register</h4>
@@ -970,7 +986,7 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
                   <td style="font-size: 0.8rem;">${v.uploadedBy}</td>
                   <td style="font-size: 0.8rem; color: var(--color-text-secondary);">${v.note || 'Revised filing'}</td>
                   <td style="text-align: right;">
-                    <button class="btn btn-ghost btn-sm" onclick="App.showToast('Downloading version ${v.version}...', 'info')" title="Download this version">⬇</button>
+                    <button class="btn btn-ghost btn-sm" onclick="App.showToast('Downloading version ${v.version}...', 'info')" title="Download this version"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></button>
                   </td>
                 </tr>
               `).join('')}
@@ -991,8 +1007,8 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
               <input type="text" id="revision-note-input" class="form-control" style="font-size: 0.8rem;" placeholder="e.g. Amended plaint after preliminary objection">
             </div>
           </div>
-          <button class="btn btn-gold btn-sm" onclick="DocumentsView.saveNewVersion('${doc.id}')" style="font-weight: 700;">
-            🚀 Save &amp; Activate New Version
+          <button class="btn btn-gold btn-sm flex items-center gap-1.5" onclick="DocumentsView.saveNewVersion('${doc.id}')" style="font-weight: 700;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Save &amp; Activate New Version
           </button>
         </div>
       </div>
@@ -1068,15 +1084,19 @@ ${j.finalOrders || j.reasoning || 'Orders accordingly as rendered.'}`
       <div class="modal-header" style="background: linear-gradient(135deg, #102A43, #0B1F33); color: #FFFFFF;">
         <div>
           <div style="font-size: 0.72rem; color: var(--color-gold); font-weight: 700; text-transform: uppercase;">Chain of Custody &amp; Forensic Log</div>
-          <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 0.2rem;">🛡️ Access History: ${doc.title}</h3>
+          <h3 class="modal-title flex items-center gap-2" style="color: #FFFFFF; font-size: 1.15rem; margin-top: 0.2rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Access History: ${doc.title}
+          </h3>
           <div style="font-size: 0.78rem; color: rgba(255,255,255,0.7);">${doc.caseNumber} &middot; Confidentiality: <strong>${doc.accessLevel || 'Privileged'}</strong></div>
         </div>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()" style="color: #FFFFFF;">✕</button>
       </div>
 
       <div class="modal-body" style="padding: 1.5rem;">
-        <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 1.25rem;">
-          🔒 <strong>Audit Record:</strong> In accordance with the Tanzania Personal Data Protection Act (PDPA) 2022 and Advocate Ethics, all interactions with case documents (upload, download, text extraction, view, modification) are immutably logged.
+        <div class="alert alert-info" style="font-size: 0.82rem; margin-bottom: 1.25rem; display: flex; align-items: flex-start; gap: 0.35rem;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span><strong>Audit Record:</strong> In accordance with the Tanzania Personal Data Protection Act (PDPA) 2022 and Advocate Ethics, all interactions with case documents (upload, download, text extraction, view, modification) are immutably logged.</span>
         </div>
 
         <div class="table-container" style="max-height: 320px; overflow-y: auto;">

@@ -216,7 +216,7 @@ const CasesView = {
             <div class="filter-group cases-filter-cell">
               <select class="form-control" onchange="CasesView.handleFilterStatus(this.value)">
                 <option value="All" ${this.selectedFilterStatus === 'All' ? 'selected' : ''}>All Statuses</option>
-                <option value="Attention" ${this.selectedFilterStatus === 'Attention' ? 'selected' : ''}>⚠️ Attention (3 Matters)</option>
+                <option value="Attention" ${this.selectedFilterStatus === 'Attention' ? 'selected' : ''}>Attention (3 Matters)</option>
                 <option value="Active" ${this.selectedFilterStatus === 'Active' ? 'selected' : ''}>Active</option>
                 <option value="Pending" ${this.selectedFilterStatus === 'Pending' ? 'selected' : ''}>Pending</option>
                 <option value="On Hold" ${this.selectedFilterStatus === 'On Hold' ? 'selected' : ''}>On Hold</option>
@@ -272,7 +272,7 @@ const CasesView = {
         ${this.selectedFilterStatus === 'Attention' ? `
           <div class="alert alert-warning animate-fade" style="margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid #D97706; background: #FFFBEB; border: 1px solid #FDE68A; padding: 1rem 1.25rem; border-radius: 8px;">
             <div class="flex items-start gap-3">
-              <span style="font-size: 1.35rem; line-height: 1;">⚠️</span>
+              <span style="color: #D97706; flex-shrink: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
               <div>
                 <strong style="color: #92400E; font-size: 0.95rem;">3 Cases Requiring Administrative Attention</strong>
                 <p style="font-size: 0.82rem; color: #78350F; margin: 0.25rem 0 0 0; line-height: 1.5;">
@@ -294,7 +294,7 @@ const CasesView = {
             <div class="cases-admin-suite-header">
               <div class="cases-admin-suite-title-row">
                 <div style="display: flex; align-items: center; gap: 0.55rem;">
-                  <span class="cases-admin-crown-badge">👑</span>
+                  <span class="cases-admin-crown-badge" style="color: var(--color-gold);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></span>
                   <div>
                     <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
                       <strong class="cases-admin-suite-title">Administrative Matter Governance Suite</strong>
@@ -307,25 +307,26 @@ const CasesView = {
             </div>
 
             <div class="cases-admin-actions-grid">
-              <button class="btn btn-secondary btn-sm cases-admin-action-btn" onclick="CasesView.openAssignStaffModal()">
-                <span>👤 Assign / Remove Staff</span>
+              <button class="btn btn-secondary btn-sm cases-admin-action-btn flex items-center gap-1.5" onclick="CasesView.openAssignStaffModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/></svg> <span>Assign / Remove Staff</span>
               </button>
-              <button class="btn btn-secondary btn-sm cases-admin-action-btn" onclick="CasesView.openMetadataCorrectionModal()">
-                <span>📝 Correct Metadata</span>
+              <button class="btn btn-secondary btn-sm cases-admin-action-btn flex items-center gap-1.5" onclick="CasesView.openMetadataCorrectionModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> <span>Correct Metadata</span>
               </button>
-              <button class="btn btn-secondary btn-sm cases-admin-action-btn" onclick="CasesView.openSensitiveLockModal()">
-                <span>🔒 Lock Sensitive Matter</span>
+              <button class="btn btn-secondary btn-sm cases-admin-action-btn flex items-center gap-1.5" onclick="CasesView.openSensitiveLockModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> <span>Lock Sensitive Matter</span>
               </button>
-              <button class="btn btn-secondary btn-sm cases-admin-action-btn" onclick="CasesView.openAccessListModal()">
-                <span>👥 View Who Has Access</span>
+              <button class="btn btn-secondary btn-sm cases-admin-action-btn flex items-center gap-1.5" onclick="CasesView.openAccessListModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <span>View Who Has Access</span>
               </button>
-              <button class="btn btn-secondary btn-sm cases-admin-action-archive" onclick="CasesView.openArchiveModal()">
-                <span>📦 Archive Matter</span>
+              <button class="btn btn-secondary btn-sm cases-admin-action-archive flex items-center gap-1.5" onclick="CasesView.openArchiveModal()">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> <span>Archive Matter</span>
               </button>
             </div>
 
-            <div class="cases-admin-suite-notice">
-              ⚖️ <strong>Separation of Legal Duties:</strong> Administrator manages staffing, metadata, sensitive locks, and archiving. Administrator <em>cannot</em> alter legal facts, change evidence, produce final legal advice, or approve court arguments.
+            <div class="cases-admin-suite-notice flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold); flex-shrink: 0;"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+              <span><strong>Separation of Legal Duties:</strong> Administrator manages staffing, metadata, sensitive locks, and archiving. Administrator <em>cannot</em> alter legal facts, change evidence, produce final legal advice, or approve court arguments.</span>
             </div>
           </div>
         ` : ''}
@@ -347,7 +348,9 @@ const CasesView = {
         const isAdmin = SLCMS_STATE.currentUser?.role === 'Administrator';
         return `
           <div class="card empty-state" style="padding: 3.5rem 1.5rem; text-align: center; margin: 1rem 0;">
-            <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem;">⚖️</div>
+            <div class="empty-icon" style="color: var(--color-gold); display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin: 0 auto 0.85rem auto; border-radius: 50%; background: rgba(200,155,60,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+            </div>
             <h3 class="empty-title" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">No cases registered yet</h3>
             <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.5;">
               ${isAdmin ? 'No cases have been registered in the system yet.' : 'Add the first case to begin managing assignments and documents.'}
@@ -450,8 +453,8 @@ const CasesView = {
                       <button class="btn btn-secondary btn-sm" onclick="CasesView.openCaseDetails('${c.id}')" title="View Deep Case Dossier">
                         View
                       </button>
-                      <button class="btn btn-ghost btn-sm" onclick="App.navigate('client-messages'); setTimeout(() => ClientMessagesView.handleSelectCase('${c.id}'), 100);" title="Draft Client Message with Case Generator">
-                        ✉️ Msg
+                      <button class="btn btn-ghost btn-sm flex items-center gap-1" onclick="App.navigate('client-messages'); setTimeout(() => ClientMessagesView.handleSelectCase('${c.id}'), 100);" title="Draft Client Message with Case Generator">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Msg
                       </button>
                       <button class="btn btn-ghost btn-sm" onclick="CasesView.quickAddTask('${c.id}')" title="Add Task to Case">
                         +Task
@@ -483,12 +486,12 @@ const CasesView = {
             <div class="case-card-mobile-meta">
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span style="font-family: var(--font-mono); font-weight: 700; color: var(--color-gold);">${c.caseNumber}</span>
-                <span>🏛️ ${c.court}</span>
+                <span class="flex items-center gap-1"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> ${c.court}</span>
               </div>
               <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
                 <span>Client: <strong>${c.client}</strong></span>
-                <span style="font-weight: 600; color: ${c.nextHearingDate === 'Completed' ? 'var(--color-text-muted)' : 'var(--color-danger)'};">
-                  📅 ${c.nextHearingDate}
+                <span class="flex items-center gap-1" style="font-weight: 600; color: ${c.nextHearingDate === 'Completed' ? 'var(--color-text-muted)' : 'var(--color-danger)'};">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${c.nextHearingDate}
                 </span>
               </div>
             </div>
@@ -496,8 +499,8 @@ const CasesView = {
               <button class="btn btn-secondary btn-sm" onclick="CasesView.openCaseDetails('${c.id}')">
                 Open Matter
               </button>
-              <button class="btn btn-ghost btn-sm" onclick="App.navigate('client-messages'); setTimeout(() => ClientMessagesView.handleSelectCase('${c.id}'), 100);" title="Message Client">
-                ✉️ Msg
+              <button class="btn btn-ghost btn-sm flex items-center gap-1" onclick="App.navigate('client-messages'); setTimeout(() => ClientMessagesView.handleSelectCase('${c.id}'), 100);" title="Message Client">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> Msg
               </button>
               <button class="btn btn-ghost btn-sm" onclick="CasesView.quickAddTask('${c.id}')">
                 +Task
@@ -526,7 +529,9 @@ const CasesView = {
         const isAdmin = SLCMS_STATE.currentUser?.role === 'Administrator';
         return `
           <div class="card empty-state" style="padding: 3.5rem 1.5rem; text-align: center; margin: 1rem 0;">
-            <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem;">⚖️</div>
+            <div class="empty-icon" style="color: var(--color-gold); display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin: 0 auto 0.85rem auto; border-radius: 50%; background: rgba(200,155,60,0.12);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+            </div>
             <h3 class="empty-title" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">No cases registered yet</h3>
             <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.5;">
               ${isAdmin ? 'No cases have been registered in the system yet.' : 'Add the first case to begin managing assignments and documents.'}

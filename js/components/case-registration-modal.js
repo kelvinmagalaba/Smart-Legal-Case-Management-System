@@ -685,8 +685,8 @@ JUDGE`;
     const modalHTML = `
       <div class="modal-header" style="background: var(--color-surface); border-bottom: 1px solid var(--color-border); padding: 1.25rem 1.75rem;">
         <div class="flex items-center gap-3">
-          <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(200,155,60,0.12); border: 1px solid var(--color-gold); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;">
-            ⚖️
+          <div style="width: 36px; height: 36px; border-radius: var(--radius-sm); background: rgba(200,155,60,0.12); border: 1px solid var(--color-gold); display: flex; align-items: center; justify-content: center; color: var(--color-gold);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
           </div>
           <div>
             <h3 class="modal-title" style="font-size: 1.25rem; font-weight: 700; color: var(--color-primary); line-height: 1.2;">
@@ -877,9 +877,10 @@ JUDGE`;
 
             <!-- Quick Example Autofill Card -->
             <div style="background: rgba(200,155,60,0.06); border: 1px dashed var(--color-gold); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between;">
-              <div style="font-size: 0.82rem; color: var(--color-primary);">
-                💡 <strong>Pre-fill Jackson Mati v Joseph Jutky Landmark Land Case:</strong>
-                <span style="color: var(--color-text-secondary); margin-left: 0.5rem;">Load standard Tanzanian High Court test record</span>
+              <div style="font-size: 0.82rem; color: var(--color-primary); display: flex; align-items: center; gap: 0.4rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold); flex-shrink: 0;"><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg>
+                <span><strong>Pre-fill Jackson Mati v Joseph Jutky Landmark Land Case:</strong></span>
+                <span style="color: var(--color-text-secondary);">Load standard Tanzanian High Court test record</span>
               </div>
               <button type="button" class="btn btn-secondary btn-sm" onclick="CaseRegistrationModal.loadExampleJacksonMati()">
                 Fill Example Data
@@ -901,8 +902,9 @@ JUDGE`;
 
               <!-- Parties Section -->
               <div style="margin-bottom: 1.25rem; background: var(--color-surface-subtle); padding: 1rem; border-radius: var(--radius-md);">
-                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem;">
-                  👥 Litigating Parties & Legal Roles
+                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  <span>Litigating Parties &amp; Legal Roles</span>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4" style="margin-bottom: 0.85rem;">
@@ -977,8 +979,9 @@ JUDGE`;
 
               <!-- Court Information -->
               <div style="background: var(--color-surface); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
-                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem;">
-                  🏛️ Court Jurisdiction & Judicial Officers
+                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+                  <span>Court Jurisdiction &amp; Judicial Officers</span>
                 </div>
 
                 <div class="grid grid-cols-3 gap-4" style="margin-bottom: 0.85rem;">
@@ -1087,10 +1090,10 @@ JUDGE`;
                 </div>
               </div>
 
-              <!-- Procedural History & Outcome -->
               <div style="background: var(--color-surface-subtle); padding: 1rem; border-radius: var(--radius-md);">
-                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem;">
-                  📜 Procedural History Trail & Judgment Outcome
+                <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                  <span>Procedural History Trail &amp; Judgment Outcome</span>
                 </div>
 
                 <div class="grid grid-cols-3 gap-4" style="margin-bottom: 0.85rem;">
@@ -1243,7 +1246,9 @@ JUDGE`;
               <!-- Upload Dropzone -->
               <div class="dropzone-box" style="margin-bottom: 1.25rem; border: 2px dashed ${fd.fileName ? 'var(--color-gold)' : 'var(--color-border)'}; background: ${fd.fileName ? 'rgba(200,155,60,0.04)' : 'var(--color-surface-subtle)'};" onclick="document.getElementById('cr-file-input').click()">
                 <input type="file" id="cr-file-input" accept=".pdf" style="display: none;" onchange="CaseRegistrationModal.handleFileSelect(this)">
-                <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📄</div>
+                <div style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--color-primary); display: flex; justify-content: center;">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                </div>
                 <div style="font-weight: 600; color: var(--color-primary); font-size: 0.95rem;">
                   ${fd.fileName ? `Selected File: ${fd.fileName}` : 'Choose or Drag Scanned PDF Judgment Here'}
                 </div>
@@ -1256,7 +1261,7 @@ JUDGE`;
               <div style="background: #071524; color: #FFFFFF; padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid rgba(200,155,60,0.3);">
                 <div class="flex items-center justify-between" style="margin-bottom: 0.85rem;">
                   <div class="flex items-center gap-2">
-                    <span style="color: var(--color-gold); font-size: 1.1rem;">⚡</span>
+                    <span style="color: var(--color-gold);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
                     <strong style="font-size: 0.95rem;">Tanzanian Legal OCR Engine</strong>
                   </div>
                   <span class="badge" style="background: ${fd.ocrStatus === 'OCR_REVIEW_REQUIRED' ? '#F59E0B' : (fd.ocrStatus === 'OCR_PROCESSING' ? '#3B82F6' : '#64748B')}; color: #FFFFFF;">
@@ -1283,8 +1288,9 @@ JUDGE`;
               </div>
 
               <!-- Critical Guardrail Alert -->
-              <div class="alert alert-info" style="margin-top: 1rem; font-size: 0.78rem;">
-                🛡️ <strong>Mandatory System Rule:</strong> A document must not display <code>READY_FOR_AI</code> merely because metadata was entered. Extracted text review and AI section confirmation in Step 6 are mandatory.
+              <div class="alert alert-info" style="margin-top: 1rem; font-size: 0.78rem; display: flex; align-items: flex-start; gap: 0.4rem;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 2px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span><strong>Mandatory System Rule:</strong> A document must not display <code>READY_FOR_AI</code> merely because metadata was entered. Extracted text review and AI section confirmation in Step 6 are mandatory.</span>
               </div>
             </div>
           </div>
@@ -1297,7 +1303,9 @@ JUDGE`;
             ${this.duplicateDetected ? `
               <div style="background: rgba(239, 68, 68, 0.08); border: 2px solid #EF4444; padding: 1.15rem 1.35rem; border-radius: var(--radius-md); margin-bottom: 1.25rem;">
                 <div class="flex items-center gap-3">
-                  <div style="font-size: 1.5rem; color: #EF4444;">⚠️</div>
+                  <div style="color: #EF4444;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </div>
                   <div style="flex: 1;">
                     <strong style="color: #EF4444; font-size: 0.95rem;">Possible Duplicate Judgment Detected</strong>
                     <p style="font-size: 0.82rem; color: var(--color-primary); margin: 0.25rem 0 0.5rem 0;">
@@ -1305,8 +1313,8 @@ JUDGE`;
                       <strong>${this.duplicateDetected.matchedField}</strong>.
                     </p>
                     <div class="flex items-center gap-2">
-                      <button type="button" class="btn btn-secondary btn-sm" onclick="App.closeModal(); TanzaniaIntentRouter.openCaseDetail('${this.duplicateDetected.existingCase.id}')">
-                        🔍 Inspect Existing Record
+                      <button type="button" class="btn btn-secondary btn-sm flex items-center gap-1" onclick="App.closeModal(); TanzaniaIntentRouter.openCaseDetail('${this.duplicateDetected.existingCase.id}')">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Inspect Existing Record
                       </button>
                       <button type="button" class="btn btn-ghost btn-sm text-danger" onclick="CaseRegistrationModal.duplicateDetected = null; CaseRegistrationModal.render();">
                         Proceed Anyway (Authorized Revision)
@@ -1346,8 +1354,9 @@ JUDGE`;
 
                 <!-- Column 2: Prepared AI Sections Confirmation -->
                 <div style="display: flex; flex-direction: column; max-height: 380px; overflow-y: auto; padding-right: 0.5rem;">
-                  <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.5rem;">
-                    🤖 Prepared AI Details (Used by AI Search & Response Buttons)
+                  <div style="font-weight: 600; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8" y2="16"/><line x1="16" y1="16" x2="16" y2="16"/></svg>
+                    <span>Prepared AI Details (Used by AI Search &amp; Response Buttons)</span>
                   </div>
 
                   <div class="form-group" style="margin-bottom: 0.75rem;">
@@ -1390,8 +1399,9 @@ JUDGE`;
 
               <!-- Final Confirmation Box -->
               <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.85rem 1.25rem; border-radius: var(--radius-md); margin-top: 1rem; display: flex; align-items: center; justify-content: space-between;">
-                <div style="font-size: 0.82rem; color: var(--color-primary);">
-                  ✅ <strong>Ready for AI Indexing:</strong> Human review confirmed. Extracted text, parties, and AI categories will be searchable across the 32 AI Intent categories.
+                <div style="font-size: 0.82rem; color: var(--color-primary); display: flex; align-items: center; gap: 0.4rem;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" style="flex-shrink: 0;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <span><strong>Ready for AI Indexing:</strong> Human review confirmed. Extracted text, parties, and AI categories will be searchable across the 32 AI Intent categories.</span>
                 </div>
                 <span class="badge badge-success">READY_FOR_AI</span>
               </div>

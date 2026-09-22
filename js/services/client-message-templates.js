@@ -7,15 +7,15 @@
 const ClientMessageTemplates = {
   // 9 Approved Categories strictly adhering to specification
   MESSAGE_TYPES: [
-    { id: 'Hearing Reminder', label: 'Hearing Reminder', icon: '⚖️', purpose: 'Reminds the client about an upcoming hearing' },
-    { id: 'Appointment Reminder', label: 'Appointment Reminder', icon: '📅', purpose: 'Reminds the client about a meeting with the lawyer' },
-    { id: 'Case Progress Update', label: 'Case Progress Update', icon: '📈', purpose: 'Explains the current stage of the case' },
-    { id: 'Request for Documents', label: 'Request for Documents', icon: '📑', purpose: 'Requests specified documents from the client' },
-    { id: 'Request for Instructions', label: 'Request for Instructions', icon: '✍️', purpose: 'Asks the client to provide a decision or further instructions' },
-    { id: 'Date Change Notice', label: 'Date Change Notice', icon: '🔄', purpose: 'Informs the client that a hearing or appointment has changed' },
-    { id: 'Case Outcome Notice', label: 'Case Outcome Notice', icon: '📜', purpose: 'Communicates a recorded court decision' },
-    { id: 'Case Closure Notice', label: 'Case Closure Notice', icon: '📁', purpose: 'Informs the client that the matter has been closed' },
-    { id: 'Custom Message', label: 'Custom Message', icon: '✉️', purpose: 'Allows an authorized user to provide their own instructions' }
+    { id: 'Hearing Reminder', label: 'Hearing Reminder', icon: '', purpose: 'Reminds the client about an upcoming hearing' },
+    { id: 'Appointment Reminder', label: 'Appointment Reminder', icon: '', purpose: 'Reminds the client about a meeting with the lawyer' },
+    { id: 'Case Progress Update', label: 'Case Progress Update', icon: '', purpose: 'Explains the current stage of the case' },
+    { id: 'Request for Documents', label: 'Request for Documents', icon: '', purpose: 'Requests specified documents from the client' },
+    { id: 'Request for Instructions', label: 'Request for Instructions', icon: '', purpose: 'Asks the client to provide a decision or further instructions' },
+    { id: 'Date Change Notice', label: 'Date Change Notice', icon: '', purpose: 'Informs the client that a hearing or appointment has changed' },
+    { id: 'Case Outcome Notice', label: 'Case Outcome Notice', icon: '', purpose: 'Communicates a recorded court decision' },
+    { id: 'Case Closure Notice', label: 'Case Closure Notice', icon: '', purpose: 'Informs the client that the matter has been closed' },
+    { id: 'Custom Message', label: 'Custom Message', icon: '', purpose: 'Allows an authorized user to provide their own instructions' }
   ],
 
   // Confidentiality notices

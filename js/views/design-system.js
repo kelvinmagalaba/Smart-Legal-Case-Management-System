@@ -331,8 +331,9 @@ const DesignSystemView = {
           <div class="flex items-start justify-between flex-wrap gap-4">
             <div>
               <div class="flex items-center gap-3" style="margin-bottom: 0.5rem;">
-                <span class="badge badge-confidential" style="font-size: 0.8rem; padding: 0.35rem 0.8rem;">
-                  ⚖️ SLCMS Design System v2.8 Core
+                <span class="badge badge-confidential flex items-center gap-1.5" style="font-size: 0.8rem; padding: 0.35rem 0.8rem;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+                  SLCMS Design System v2.8 Core
                 </span>
                 <span class="badge" style="background: rgba(200, 155, 60, 0.2); color: #E8D39E; border: 1px solid var(--color-gold); font-size: 0.75rem;">
                   Enterprise Legal Specification
@@ -359,19 +360,19 @@ const DesignSystemView = {
           <!-- Section Jump Navigation Tabs -->
           <div class="ds-section-nav">
             <button class="ds-nav-pill ${this.currentActiveTab === 'all' ? 'active' : ''}" onclick="DesignSystemView.setTab('all')">
-              📑 All Specifications
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> All Specifications
             </button>
             <button class="ds-nav-pill ${this.currentActiveTab === 'tokens' ? 'active' : ''}" onclick="DesignSystemView.setTab('tokens')">
-              🎨 1. Curated Legal Color Tokens
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg> 1. Curated Legal Color Tokens
             </button>
             <button class="ds-nav-pill ${this.currentActiveTab === 'components' ? 'active' : ''}" onclick="DesignSystemView.setTab('components')">
-              🧩 2. Reusable UI Component Playground
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg> 2. Reusable UI Component Playground
             </button>
             <button class="ds-nav-pill ${this.currentActiveTab === 'sitemap' ? 'active' : ''}" onclick="DesignSystemView.setTab('sitemap')">
-              🏛️ 3. Visual Sitemap & Navigation Hierarchy
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> 3. Visual Sitemap &amp; Navigation Hierarchy
             </button>
             <button class="ds-nav-pill ${this.currentActiveTab === 'lifecycle' ? 'active' : ''}" onclick="DesignSystemView.setTab('lifecycle')">
-              🔄 4. Standard Litigation Lifecycle User-Flow
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> 4. Standard Litigation Lifecycle User-Flow
             </button>
           </div>
         </div>
@@ -532,8 +533,8 @@ const DesignSystemView = {
                   <div style="font-weight: 700; font-size: 0.88rem; color: var(--color-primary);">High Priority</div>
                   <div style="font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 0.15rem;">Statutory deadline imminent</div>
                 </div>
-                <span class="badge badge-priority-high ds-live-badge" style="border-radius: ${this.currentBadgeRadius};">
-                  ⚠️ High Priority
+                <span class="badge badge-priority-high ds-live-badge flex items-center gap-1" style="border-radius: ${this.currentBadgeRadius};">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> High Priority
                 </span>
               </div>
 
@@ -543,8 +544,8 @@ const DesignSystemView = {
                   <div style="font-weight: 700; font-size: 0.88rem; color: var(--color-primary);">Privileged Work-Product</div>
                   <div style="font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 0.15rem;">Fed. R. Evid. 502 Shield</div>
                 </div>
-                <span class="badge badge-confidential ds-live-badge" style="border-radius: ${this.currentBadgeRadius};">
-                  🔒 Attorney-Client Privileged
+                <span class="badge badge-confidential ds-live-badge flex items-center gap-1" style="border-radius: ${this.currentBadgeRadius};">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Attorney-Client Privileged
                 </span>
               </div>
             </div>
@@ -613,7 +614,7 @@ const DesignSystemView = {
 
             <div class="flex items-center gap-2">
               <span style="font-size: 0.8rem; color: var(--color-text-secondary); font-weight: 600;">Structure:</span>
-              <span class="badge" style="background: #102A43; color: #FFFFFF;">🏛️ SLCMS App Root</span>
+              <span class="badge flex items-center gap-1" style="background: #102A43; color: #FFFFFF;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg> SLCMS App Root</span>
             </div>
           </div>
 
@@ -737,7 +738,7 @@ const DesignSystemView = {
           <div class="flex items-center gap-3">
             <div class="ds-sitemap-icon-box">${m.icon}</div>
             <div>
-              <div class="ds-sitemap-num">📁 Module ${m.id < 10 ? '0' + m.id : m.id}</div>
+              <div class="ds-sitemap-num flex items-center gap-1"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Module ${m.id < 10 ? '0' + m.id : m.id}</div>
               <div class="ds-sitemap-name">${m.name}</div>
             </div>
           </div>
@@ -818,12 +819,12 @@ const DesignSystemView = {
           <!-- Legal Work-Product Deliverables -->
           <div style="background: var(--color-card-bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
             <div style="font-weight: 700; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
-              <span style="color: var(--color-info);">📄</span> Mandated Deliverables
+              <span style="color: var(--color-info);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span> Mandated Deliverables
             </div>
             <div class="flex flex-col gap-2">
               ${stage.deliverables.map(deliv => `
                 <div class="flex items-center gap-2" style="font-size: 0.82rem; background: var(--color-surface-subtle); padding: 0.4rem 0.65rem; border-radius: 4px; border: 1px solid var(--color-border);">
-                  <span style="color: var(--color-gold);">⚖️</span>
+                  <span style="color: var(--color-gold);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg></span>
                   <span style="font-weight: 600; color: var(--color-primary);">${deliv}</span>
                 </div>
               `).join('')}
@@ -833,7 +834,7 @@ const DesignSystemView = {
           <!-- Compliance & Ethical Guardrails -->
           <div style="background: var(--color-card-bg); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--color-border);">
             <div style="font-weight: 700; font-size: 0.88rem; color: var(--color-primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.4rem;">
-              <span style="color: var(--color-danger);">🛡️</span> Statutory Compliance Rules
+              <span style="color: var(--color-danger);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span> Statutory Compliance Rules
             </div>
             <div style="font-size: 0.8rem; color: var(--color-text-secondary); line-height: 1.55;">
               All operations performed in <strong>Stage ${stage.number}</strong> are governed by ABA Model Rules of Professional Conduct (Rule 1.1 Competence, Rule 1.6 Confidentiality, and Rule 1.15 Safekeeping Property for IOLTA accounts).

@@ -9,6 +9,31 @@ const ClientsView = {
   currentTab: 'all', // 'all' | 'organization' | 'individual'
   searchQuery: '',
 
+  formatLawyer(lawyerInput) {
+    if (!lawyerInput) return 'Adv. Asha Mrema';
+    if (typeof lawyerInput === 'object') {
+      return lawyerInput.name || lawyerInput.displayName || lawyerInput.fullName || 'Adv. Asha Mrema';
+    }
+    return String(lawyerInput);
+  },
+
+  toggleActionDropdown(event, clientId) {
+    if (event) event.stopPropagation();
+    const target = document.getElementById(`client-dropdown-${clientId}`);
+    const isHidden = target ? target.classList.contains('hidden') : true;
+
+    // Close all active dropdowns
+    this.closeAllDropdowns();
+
+    if (target && isHidden) {
+      target.classList.remove('hidden');
+    }
+  },
+
+  closeAllDropdowns() {
+    document.querySelectorAll('.action-dropdown-menu').forEach(d => d.classList.add('hidden'));
+  },
+
   render() {
     const filteredClients = SLCMS_STATE.clients.filter(c => {
       const matchSearch = !this.searchQuery ||
@@ -26,17 +51,17 @@ const ClientsView = {
 
     return `
       <div class="animate-fade">
-        <div class="view-header">
+        <div class="view-header flex items-center justify-between" style="margin-bottom: 0.85rem;">
           <div>
-            <h1 class="page-title">Clients &amp; Retainer Accounts</h1>
-            <p style="color: var(--color-text-secondary); font-size: 0.88rem;">
+            <h1 class="page-title" style="font-size: 1.5rem; margin-bottom: 0.2rem;">Clients &amp; Retainer Accounts</h1>
+            <p style="color: var(--color-text-secondary); font-size: 0.84rem; margin: 0;">
               Manage legal client profiles, corporate registrations, KYC data, and assigned legal counsel
             </p>
           </div>
           <div class="flex items-center gap-2">
             ${isAdmin ? `
               <button class="btn btn-secondary" onclick="ClientsView.openCheckDuplicatesModal()" title="Detect duplicate client records">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
                   <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
                 </svg>
@@ -44,44 +69,44 @@ const ClientsView = {
               </button>
             ` : ''}
             <button class="btn btn-gold" onclick="ClientsView.openNewClientModal()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                 <circle cx="9" cy="7" r="4"/>
                 <line x1="19" y1="8" x2="19" y2="14"/>
                 <line x1="22" y1="11" x2="16" y2="11"/>
               </svg>
-              <span>Register Client</span>
+              <span>＋ Register Client</span>
             </button>
           </div>
         </div>
 
         ${isAdmin ? `
           <!-- PRIVILEGED DATA PROTECTION NOTICE -->
-          <div class="alert alert-info animate-fade" style="margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-left: 4px solid var(--color-gold); background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.85rem 1.25rem; border-radius: 8px;">
-            <div class="flex items-center gap-3">
-              <span style="font-size: 1.35rem;">🛡️</span>
-              <div style="font-size: 0.82rem; color: #334155; line-height: 1.4;">
-                <strong>Attorney-Client Privilege Protocol Active:</strong> Identification numbers are masked, and privileged legal strategy notes or advice are shielded from administrative access. Administrators can verify directory metadata, detect duplicate entries, toggle active status, and review access rosters.
+          <div class="alert alert-info animate-fade" style="margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; border-left: 3px solid var(--color-gold); background: #F8FAFC; border: 1px solid #E2E8F0; padding: 0.55rem 1rem; border-radius: 8px; font-size: 0.82rem;">
+            <div class="flex items-center gap-2.5">
+              <span style="font-size: 1.1rem;">🛡️</span>
+              <div style="color: #334155; line-height: 1.35;">
+                <strong>Attorney-Client Privilege Active:</strong> Identification numbers are masked, and sensitive legal strategy data are protected.
               </div>
             </div>
-            <span class="badge badge-confidential" style="white-space: nowrap; font-size: 0.7rem;">Privileged Boundary</span>
+            <span class="badge badge-confidential" style="white-space: nowrap; font-size: 0.68rem; padding: 0.2rem 0.5rem;">Privileged Boundary</span>
           </div>
         ` : ''}
 
-        <!-- Filter Bar -->
-        <div class="filter-bar">
-          <div class="input-with-icon" style="flex: 1; min-width: 240px;">
+        <!-- Single-Row Search & Filter Tabs Bar -->
+        <div class="filter-bar" style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1.15rem; background: var(--color-card-bg); padding: 0.5rem 0.85rem; border-radius: 10px; border: 1px solid var(--color-border);">
+          <div class="input-with-icon" style="flex: 1; max-width: 460px;">
             <span class="input-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="11" cy="11" r="8"/>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"/>
               </svg>
             </span>
-            <input type="text" class="form-control" placeholder="Search clients by name, email, ID number or contact person..."
+            <input type="text" class="form-control" style="height: 38px; font-size: 0.84rem;" placeholder="Search clients by name, email, TIN or phone..."
                    value="${this.searchQuery}" oninput="ClientsView.handleSearch(this.value)">
           </div>
 
-          <div class="tabs-nav" style="border-bottom: none; margin-bottom: 0;">
+          <div class="tabs-nav" style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
             <button class="tab-btn ${this.currentTab === 'all' ? 'active' : ''}" onclick="ClientsView.filterTab('all')">All (${SLCMS_STATE.clients.length})</button>
             <button class="tab-btn ${this.currentTab === 'organization' ? 'active' : ''}" onclick="ClientsView.filterTab('organization')">Organizations</button>
             <button class="tab-btn ${this.currentTab === 'individual' ? 'active' : ''}" onclick="ClientsView.filterTab('individual')">Individuals</button>
@@ -90,100 +115,108 @@ const ClientsView = {
 
         <!-- Clients Content -->
         ${filteredClients.length === 0 ? `
-          <div class="card empty-state" style="padding: 3.5rem 1.5rem; text-align: center; margin-top: 1rem;">
-            <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem;">👥</div>
+          <div class="card empty-state" style="padding: 3rem 1.5rem; text-align: center; margin-top: 1rem;">
+            <div class="empty-icon" style="font-size: 2.5rem; margin-bottom: 0.75rem;">👥</div>
             <h3 class="empty-title" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">No clients registered</h3>
-            <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.5;">
-              There are currently no clients registered in the firm repository. Register a new individual or corporate client to begin matter onboarding.
+            <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.25rem auto; line-height: 1.5; font-size: 0.88rem;">
+              There are currently no clients registered in the firm repository matching your query.
             </p>
             <button class="btn btn-gold" onclick="ClientsView.openNewClientModal()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <line x1="19" y1="8" x2="19" y2="14"/>
-                <line x1="22" y1="11" x2="16" y2="11"/>
-              </svg>
               <span>+ Add Client</span>
             </button>
           </div>
         ` : `
           <!-- Clients Cards Grid -->
-          <div class="grid grid-cols-3 gap-6">
+          <div class="grid grid-cols-3 gap-5">
             ${filteredClients.map(c => {
               const clientCases = SLCMS_STATE.cases.filter(cs => cs.clientId === c.id || cs.client === c.name);
-              const lawyer = c.assignedLawyer || (clientCases[0] ? clientCases[0].lawyer : 'Adv. Asha Mrema');
+              const rawLawyer = c.assignedLawyer || (clientCases[0] ? clientCases[0].lawyer : 'Adv. Asha Mrema');
+              const lawyerFormatted = this.formatLawyer(rawLawyer);
+
               const maskedId = isAdmin 
                 ? (c.idNumber ? `TIN-***-${c.idNumber.slice(-4)}` : 'N/A')
                 : (c.idNumber || 'N/A');
 
               return `
-                <div class="card card-hover flex flex-col justify-between" style="position: relative;">
+                <div class="card card-hover flex flex-col justify-between" style="padding: 1.1rem; border-radius: 12px; position: relative;">
                   <div>
-                    <div class="flex items-start justify-between" style="margin-bottom: 0.75rem;">
-                      <div class="flex items-center gap-3">
-                        <div class="avatar avatar-md ${c.type === 'Corporate' || c.type === 'Organization' ? 'avatar-navy' : 'avatar-gold'}">
+                    <!-- Header: Avatar, Name, Badges -->
+                    <div class="flex items-start justify-between gap-2" style="margin-bottom: 0.75rem;">
+                      <div class="flex items-center gap-3" style="min-width: 0;">
+                        <div class="avatar avatar-md ${c.type === 'Corporate' || c.type === 'Organization' ? 'avatar-navy' : 'avatar-gold'}" style="flex-shrink: 0; width: 38px; height: 38px; font-weight: 700; font-size: 0.9rem;">
                           ${c.name.substring(0, 2).toUpperCase()}
                         </div>
-                        <div>
-                          <h3 style="font-size: 1.05rem; color: var(--color-primary); line-height: 1.2; margin: 0;">${c.name}</h3>
-                          <div class="flex items-center gap-1.5" style="margin-top: 0.25rem;">
-                            <span class="badge" style="background: var(--color-surface-subtle); font-size: 0.7rem;">${c.type}</span>
-                            <span class="badge ${c.status === 'Deactivated' ? 'badge-lost' : 'badge-active'}" style="font-size: 0.68rem;">${c.status || 'Active'}</span>
+                        <div style="min-width: 0;">
+                          <h3 style="font-size: 0.98rem; font-weight: 700; color: var(--color-primary); line-height: 1.25; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${c.name}">${c.name}</h3>
+                          <div class="flex items-center gap-1.5" style="margin-top: 0.2rem;">
+                            <span class="badge" style="background: var(--color-surface-subtle); font-size: 0.68rem; padding: 1px 6px;">${c.type}</span>
+                            <span class="badge ${c.status === 'Deactivated' ? 'badge-lost' : 'badge-active'}" style="font-size: 0.66rem; padding: 1px 6px;">${c.status || 'Active'}</span>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <!-- Client Info Details -->
-                    <div class="flex flex-col gap-2" style="font-size: 0.8rem; color: var(--color-text-secondary); margin: 0.85rem 0;">
-                      <div class="flex items-center gap-2">
-                        <span style="color: var(--color-text-muted); width: 80px; flex-shrink: 0;">ID / Reg No:</span>
-                        <strong style="font-family: var(--font-mono); color: var(--color-primary);">${maskedId}</strong>
-                        ${isAdmin ? `<span class="badge" style="font-size: 0.62rem; padding: 1px 4px; background: #FEF3C7; color: #92400E;">Masked</span>` : ''}
+                    <!-- Client Details Card Grid -->
+                    <div class="flex flex-col gap-1.5" style="font-size: 0.78rem; color: var(--color-text-secondary); margin: 0.65rem 0 0.85rem 0; background: var(--color-surface-subtle); padding: 0.65rem 0.85rem; border-radius: 8px;">
+                      <div class="flex items-center justify-between">
+                        <span style="color: var(--color-text-muted);">ID / Reg No:</span>
+                        <span style="font-family: var(--font-mono); font-weight: 600; color: var(--color-primary);">${maskedId} ${isAdmin ? `<span class="badge" style="font-size: 0.6rem; padding: 0 4px; background: #FEF3C7; color: #92400E;">Masked</span>` : ''}</span>
                       </div>
-                      <div class="flex items-center gap-2">
-                        <span style="color: var(--color-text-muted); width: 80px; flex-shrink: 0;">Assigned:</span>
-                        <span style="color: var(--color-primary); font-weight: 600;">${lawyer}</span>
+                      <div class="flex items-center justify-between">
+                        <span style="color: var(--color-text-muted);">Counsel:</span>
+                        <span style="color: var(--color-primary); font-weight: 600;">${lawyerFormatted}</span>
                       </div>
-                      <div class="flex items-center gap-2">
-                        <span style="color: var(--color-text-muted); width: 80px; flex-shrink: 0;">Email:</span>
-                        <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${c.email || 'Not provided'}</span>
+                      <div class="flex items-center justify-between">
+                        <span style="color: var(--color-text-muted);">Email:</span>
+                        <span style="max-width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--color-text-main);" title="${c.email || ''}">${c.email || 'Not provided'}</span>
                       </div>
-                      <div class="flex items-center gap-2">
-                        <span style="color: var(--color-text-muted); width: 80px; flex-shrink: 0;">Phone:</span>
-                        <span>${c.phone}</span>
-                      </div>
-                      <div class="flex items-start gap-2">
-                        <span style="color: var(--color-text-muted); width: 80px; flex-shrink: 0;">Address:</span>
-                        <span style="font-size: 0.76rem; line-height: 1.35;">${c.address || 'Not provided'}</span>
+                      <div class="flex items-center justify-between">
+                        <span style="color: var(--color-text-muted);">Phone:</span>
+                        <span style="color: var(--color-text-main); font-weight: 500;">${c.phone}</span>
                       </div>
                     </div>
                   </div>
 
                   <!-- Footer with related cases & actions -->
-                  <div class="pt-3" style="border-top: 1px solid var(--color-border-subtle); font-size: 0.78rem;">
-                    <div class="flex items-center justify-between mb-2">
-                      <div>
+                  <div class="pt-2.5" style="border-top: 1px solid var(--color-border-subtle); font-size: 0.78rem;">
+                    <div class="flex items-center justify-between" style="margin-bottom: 0.6rem;">
+                      <div class="flex items-center gap-1.5">
                         <span style="color: var(--color-text-muted);">Related Cases:</span>
-                        <strong style="color: var(--color-gold); font-size: 0.88rem;">${clientCases.length}</strong>
+                        <strong style="color: var(--color-gold); font-size: 0.84rem;">${clientCases.length}</strong>
                       </div>
-                      <button class="btn btn-ghost btn-sm" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;" onclick="ClientsView.viewRelatedCases('${c.name}')">
-                        View Cases →
-                      </button>
+                      <span style="font-size: 0.72rem; color: var(--color-text-muted); cursor: pointer;" onclick="ClientsView.openClientProfile('${c.id}')">View Dossier →</span>
                     </div>
-                    <div class="client-card-actions">
-                      <div class="client-card-main-btns">
-                        ${!isAdmin ? `
-                        <button class="btn btn-gold btn-sm client-card-btn-addcase" onclick="ClientsView.createCaseForClient('${c.name}')" title="Create Case">+ Case</button>
-                        ` : ''}
-                      </div>
-                      <div class="client-card-sub-btns">
-                        <button class="btn btn-ghost btn-sm" onclick="ClientsView.openWhoCanAccessClientModal('${c.id}')" title="Review Who Can Access Client">👥 Access</button>
-                        <button class="btn btn-ghost btn-sm ${c.status === 'Deactivated' ? 'text-success' : 'text-danger'}" onclick="ClientsView.toggleClientStatus('${c.id}')" title="${c.status === 'Deactivated' ? 'Activate Client' : 'Deactivate Client'}">
-                          ${c.status === 'Deactivated' ? '🟢 Activate' : '🚫 Deactivate'}
+
+                    <div class="flex items-center justify-between gap-2">
+                      <button class="btn btn-secondary btn-sm" style="flex: 1; font-size: 0.76rem; justify-content: center; height: 32px;" onclick="ClientsView.viewRelatedCases('${c.name}')">
+                        View Cases
+                      </button>
+
+                      <div class="dropdown-menu-wrapper" style="position: relative;">
+                        <button class="btn btn-ghost btn-sm" style="height: 32px; width: 34px; padding: 0; justify-content: center; font-weight: 700; font-size: 1.1rem; border: 1px solid var(--color-border);" onclick="ClientsView.toggleActionDropdown(event, '${c.id}')" title="More options">
+                          ⋮
                         </button>
-                        <button class="btn btn-ghost btn-sm" onclick="ClientsView.openEditClientModal('${c.id}')" title="Edit Client Information">✏️</button>
-                        <button class="btn btn-ghost btn-sm text-danger" onclick="ClientsView.confirmDeleteClient('${c.id}')" title="Delete Client">🗑️</button>
+                        
+                        <div id="client-dropdown-${c.id}" class="action-dropdown-menu hidden" style="position: absolute; right: 0; bottom: 100%; margin-bottom: 6px;">
+                          <button class="dropdown-action-item" onclick="ClientsView.openEditClientModal('${c.id}')">
+                            <span>✏️</span> Edit Client
+                          </button>
+                          <button class="dropdown-action-item" onclick="ClientsView.openWhoCanAccessClientModal('${c.id}')">
+                            <span>👥</span> Manage Access
+                          </button>
+                          <button class="dropdown-action-item ${c.status === 'Deactivated' ? 'text-success' : 'text-danger'}" onclick="ClientsView.toggleClientStatus('${c.id}')">
+                            <span>${c.status === 'Deactivated' ? '🟢' : '🚫'}</span> ${c.status === 'Deactivated' ? 'Activate' : 'Deactivate'}
+                          </button>
+                          ${!isAdmin ? `
+                          <button class="dropdown-action-item" onclick="ClientsView.createCaseForClient('${c.name}')">
+                            <span>➕</span> Register Case
+                          </button>
+                          ` : ''}
+                          <div style="height: 1px; background: var(--color-border-subtle); margin: 4px 0;"></div>
+                          <button class="dropdown-action-item text-danger" onclick="ClientsView.confirmDeleteClient('${c.id}')">
+                            <span>🗑️</span> Delete Client
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -725,3 +758,13 @@ const ClientsView = {
     `, 'modal-md');
   }
 };
+
+// Global click listener to close card dropdown menus on outside click
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown-menu-wrapper')) {
+    if (typeof ClientsView !== 'undefined' && ClientsView.closeAllDropdowns) {
+      ClientsView.closeAllDropdowns();
+    }
+  }
+});
+

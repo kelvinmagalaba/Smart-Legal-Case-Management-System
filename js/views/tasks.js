@@ -42,8 +42,8 @@ const TasksView = {
                 <span class="tasks-pulse-dot"></span>
                 <span>Deadline Monitoring Active</span>
               </span>
-              <span class="tasks-statutory-notice-chip">
-                ⚖️ Tanzanian Civil &amp; Commercial Docket Rules
+              <span class="tasks-statutory-notice-chip" style="display: flex; align-items: center; gap: 0.35rem;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Tanzanian Civil &amp; Commercial Docket Rules
               </span>
             </div>
             <p style="color: var(--color-text-secondary); font-size: 0.85rem; line-height: 1.4; margin-top: 0.15rem; margin-bottom: 0;">
@@ -104,7 +104,7 @@ const TasksView = {
           <div class="card animate-fade adm-oversight-card" style="margin-bottom: 1rem; padding: 0.95rem 1.15rem; border-left: 4px solid var(--color-gold); background: linear-gradient(135deg, rgba(16,42,67,0.03) 0%, rgba(200,155,60,0.08) 100%); border-radius: 14px;">
             <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
               <div class="flex items-center gap-2.5 flex-wrap" style="min-width: 0;">
-                <span style="font-size: 1.2rem; flex-shrink: 0;">👑</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold); flex-shrink: 0;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 <div class="flex items-center gap-2 flex-wrap" style="min-width: 0;">
                   <strong style="color: var(--color-primary); font-size: 0.94rem; font-family: var(--font-heading);">Administrator Task Oversight</strong>
                   <span class="badge badge-confidential" style="font-size: 0.65rem; white-space: nowrap;">Technical Governance</span>
@@ -114,8 +114,8 @@ const TasksView = {
                 <button class="btn btn-gold btn-sm" style="font-size: 0.76rem; padding: 0.35rem 0.75rem; font-weight: 700;" onclick="TasksView.openCreateTechnicalTaskModal()">
                   + Create Technical Task
                 </button>
-                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem; padding: 0.35rem 0.75rem; font-weight: 600;" onclick="TasksView.notifyResponsibleUsers()">
-                  🔔 Notify Users
+                <button class="btn btn-secondary btn-sm" style="font-size: 0.76rem; padding: 0.35rem 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;" onclick="TasksView.notifyResponsibleUsers()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Notify Users
                 </button>
               </div>
             </div>
@@ -127,20 +127,20 @@ const TasksView = {
                 <button class="btn ${this.adminFilter === 'all' ? 'btn-primary' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px;" onclick="TasksView.setAdminFilter('all')">
                   All (${tasks.length})
                 </button>
-                <button class="btn ${this.adminFilter === 'unassigned' ? 'btn-danger' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px;" onclick="TasksView.setAdminFilter('unassigned')">
-                  ⚠️ Unassigned (${unassignedCount})
+                <button class="btn ${this.adminFilter === 'unassigned' ? 'btn-danger' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px; display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setAdminFilter('unassigned')">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Unassigned (${unassignedCount})
                 </button>
-                <button class="btn ${this.adminFilter === 'technical' ? 'btn-gold' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px;" onclick="TasksView.setAdminFilter('technical')">
-                  ⚙️ Tech (${techCount})
+                <button class="btn ${this.adminFilter === 'technical' ? 'btn-gold' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px; display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setAdminFilter('technical')">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Tech (${techCount})
                 </button>
-                <button class="btn ${this.adminFilter === 'overdue' ? 'btn-danger' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px;" onclick="TasksView.setAdminFilter('overdue')">
-                  ⏰ Overdue (${overdueCount})
+                <button class="btn ${this.adminFilter === 'overdue' ? 'btn-danger' : 'btn-ghost'} btn-sm" style="font-size: 0.74rem; padding: 0.25rem 0.6rem; border-radius: 16px; display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setAdminFilter('overdue')">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Overdue (${overdueCount})
                 </button>
               </div>
             </div>
 
-            <div style="font-size: 0.75rem; color: #475569; line-height: 1.4; margin-top: 0.45rem; background: rgba(255,255,255,0.7); padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05);">
-              ⚖️ <strong>Administrator Oversight:</strong> The administrator may view tasks, manage assignments and correct administrative information but cannot approve legal work or confirm court filing on behalf of counsel.
+            <div style="font-size: 0.75rem; color: #475569; line-height: 1.4; margin-top: 0.45rem; background: rgba(255,255,255,0.7); padding: 0.45rem 0.75rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.05); display: flex; align-items: center; gap: 0.35rem;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong>Administrator Oversight:</strong> The administrator may view tasks, manage assignments and correct administrative information but cannot approve legal work or confirm court filing on behalf of counsel.
             </div>
           </div>
         ` : ''}
@@ -157,14 +157,14 @@ const TasksView = {
           </div>
 
           <div class="flex items-center gap-2 flex-wrap">
-            <button class="btn ${this.filterAssignedMe ? 'btn-gold' : 'btn-secondary'} btn-sm" style="font-weight: 600; border-radius: 10px;" onclick="TasksView.toggleAssignedMe()" title="Show only tasks assigned to current user">
-              👤 My Assigned Tasks ${this.filterAssignedMe ? '✓' : ''}
+            <button class="btn ${this.filterAssignedMe ? 'btn-gold' : 'btn-secondary'} btn-sm" style="font-weight: 600; border-radius: 10px; display: inline-flex; align-items: center; gap: 0.3rem;" onclick="TasksView.toggleAssignedMe()" title="Show only tasks assigned to current user">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> My Assigned Tasks ${this.filterAssignedMe ? '✓' : ''}
             </button>
             <span style="font-size: 0.78rem; color: var(--color-text-secondary); font-weight: 700; margin-left: 0.25rem;">Priority:</span>
             <button class="btn ${this.filterPriority === 'All' ? 'btn-primary' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('All')">All</button>
-            <button class="btn ${this.filterPriority === 'Urgent' ? 'btn-danger' : 'btn-secondary'} btn-sm" style="border-radius: 8px; ${this.filterPriority === 'Urgent' ? 'background: #DC2626; color: white;' : ''}" onclick="TasksView.setPriorityFilter('Urgent')">🚨 Urgent</button>
-            <button class="btn ${this.filterPriority === 'High' ? 'btn-danger' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('High')">⚠️ High</button>
-            <button class="btn ${this.filterPriority === 'Medium' ? 'btn-gold' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('Medium')">⚡ Medium</button>
+            <button class="btn ${this.filterPriority === 'Urgent' ? 'btn-danger' : 'btn-secondary'} btn-sm" style="border-radius: 8px; ${this.filterPriority === 'Urgent' ? 'background: #DC2626; color: white;' : ''}" onclick="TasksView.setPriorityFilter('Urgent')">Urgent</button>
+            <button class="btn ${this.filterPriority === 'High' ? 'btn-danger' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('High')">High</button>
+            <button class="btn ${this.filterPriority === 'Medium' ? 'btn-gold' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('Medium')">Medium</button>
             <button class="btn ${this.filterPriority === 'Low' ? 'btn-secondary' : 'btn-secondary'} btn-sm" style="border-radius: 8px;" onclick="TasksView.setPriorityFilter('Low')">Low</button>
           </div>
         </div>
@@ -243,10 +243,10 @@ const TasksView = {
 
   renderKanban() {
     const columns = [
-      { id: 'todo', title: 'To Do', icon: '📋', accent: '#1E3A8A' },
-      { id: 'in_progress', title: 'In Progress', icon: '⚡', accent: '#C89B3C' },
-      { id: 'under_review', title: 'Under Review', icon: '🔍', accent: '#6366F1' },
-      { id: 'completed', title: 'Completed', icon: '✓', accent: '#10B981' }
+      { id: 'todo', title: 'To Do', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>', accent: '#1E3A8A' },
+      { id: 'in_progress', title: 'In Progress', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>', accent: '#C89B3C' },
+      { id: 'under_review', title: 'Under Review', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>', accent: '#6366F1' },
+      { id: 'completed', title: 'Completed', icon: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>', accent: '#10B981' }
     ];
 
     const allTasks = SLCMS_STATE.tasks || [];
@@ -259,7 +259,9 @@ const TasksView = {
       ${isTotallyEmpty ? `
         <!-- GRAND EMPTY STATE SHOWCASE BOX -->
         <div class="tasks-empty-showcase-box animate-fade">
-          <div class="tasks-empty-emblem-ring">⚖️</div>
+          <div class="tasks-empty-emblem-ring">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
           <h3 class="tasks-empty-headline">No tasks or deadlines yet</h3>
           <p class="tasks-empty-lead">
             Tasks assigned to registered cases will appear here.
@@ -306,7 +308,7 @@ const TasksView = {
               <!-- Column Header Box -->
               <div class="kanban-col-header">
                 <div class="kanban-col-title-wrap">
-                  <span style="font-size: 1.05rem;">${col.icon}</span>
+                  <span style="display: flex; align-items: center;">${col.icon}</span>
                   <span class="kanban-col-title-text">${col.title}</span>
                   <span class="kanban-counter-pill" title="${colTasks.length} visible of ${totalColCount} total">
                     ${colTasks.length}
@@ -321,7 +323,7 @@ const TasksView = {
               <div class="kanban-cards-list">
                 ${colTasks.length === 0 ? `
                   <div class="kanban-col-empty-zone">
-                    <span class="kanban-col-empty-icon">${col.icon}</span>
+                    <span class="kanban-col-empty-icon" style="display: flex; justify-content: center;">${col.icon}</span>
                     <div>No tasks in ${col.title}</div>
                     <div style="font-size: 0.72rem; color: #94A3B8; margin-top: 0.2rem;">Click + to create</div>
                   </div>
@@ -339,7 +341,11 @@ const TasksView = {
     const isOverdue = t.status !== 'completed' && t.dueDate && new Date(t.dueDate) < today;
     const priority = t.priority || 'Medium';
     const priorityClass = priority.toLowerCase();
-    const priorityIcon = priority === 'Urgent' ? '🚨' : priority === 'High' ? '⚠️' : priority === 'Medium' ? '⚡' : '🔹';
+    const priorityIcon = priority === 'Urgent'
+      ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`
+      : priority === 'High'
+      ? `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`
+      : `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`;
 
     const currentUser = SLCMS_STATE.currentUser || {};
     const currentUserName = (currentUser.name || '').toLowerCase();
@@ -423,7 +429,7 @@ const TasksView = {
       } else if (colId === 'completed') {
         actionButtonsHtml = `
           <span style="font-size: 0.74rem; font-weight: 700; color: #10B981; display: inline-flex; align-items: center; gap: 0.2rem;">
-            ✓ Completed
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Completed
           </span>
         `;
       }
@@ -442,26 +448,26 @@ const TasksView = {
     return `
       <div class="card kanban-card priority-${priorityClass}" id="card-${t.id}">
         
-        <!-- 1. Top Row: [PRIORITY] · Due [Date] with ⚠️ OVERDUE warning -->
+        <!-- 1. Top Row: [PRIORITY] · Due [Date] with OVERDUE warning -->
         <div class="task-card-top-row">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="task-priority-tag ${priorityClass}">
+            <span class="task-priority-tag ${priorityClass}" style="display: inline-flex; align-items: center; gap: 0.25rem;">
               ${priorityIcon} ${priority}
             </span>
             ${t.isStatutoryDeadline ? `
-              <span class="task-statutory-verified-tag">
-                ⚖️ Statutory Deadline
+              <span class="task-statutory-verified-tag" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Statutory Deadline
               </span>
             ` : ''}
           </div>
           <div class="flex items-center gap-1.5 flex-wrap">
             ${isOverdue ? `
-              <span class="task-overdue-warning-tag">
-                ⚠️ OVERDUE
+              <span class="task-overdue-warning-tag" style="display: inline-flex; align-items: center; gap: 0.2rem;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> OVERDUE
               </span>
             ` : ''}
-            <span class="task-card-due-tag">
-              📅 Due ${formattedDate}
+            <span class="task-card-due-tag" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Due ${formattedDate}
             </span>
           </div>
         </div>
@@ -525,7 +531,9 @@ const TasksView = {
     if (tasks.length === 0) {
       return `
         <div class="card empty-state" style="padding: 3.5rem 1.5rem; text-align: center; margin-top: 1rem;">
-          <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem;">📋</div>
+          <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
           <h3 class="empty-title" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">No tasks assigned</h3>
           <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.5;">
             There are currently no tasks assigned to legal or administrative personnel. Create an actionable task linked to a legal matter.
@@ -799,28 +807,36 @@ const TasksView = {
         <!-- 1. EXECUTIVE CALENDAR METRIC STRIP -->
         <div class="court-cal-stats-strip">
           <div class="court-cal-stat-card">
-            <div class="court-cal-stat-icon red">🏛️</div>
+            <div class="court-cal-stat-icon red" style="display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h12M6 15h12M12 3L2 7h20L12 3z"/></svg>
+            </div>
             <div>
               <div class="court-cal-stat-val">${courtCount}</div>
               <div class="court-cal-stat-label">Court Appearances</div>
             </div>
           </div>
           <div class="court-cal-stat-card">
-            <div class="court-cal-stat-icon gold">⚠️</div>
+            <div class="court-cal-stat-icon gold" style="display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
             <div>
               <div class="court-cal-stat-val">${motionCount}</div>
               <div class="court-cal-stat-label">Critical Motions Due</div>
             </div>
           </div>
           <div class="court-cal-stat-card">
-            <div class="court-cal-stat-icon navy">⚖️</div>
+            <div class="court-cal-stat-icon navy" style="display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
             <div>
               <div class="court-cal-stat-val">${callCount}</div>
               <div class="court-cal-stat-label">Commercial Div. Calls</div>
             </div>
           </div>
           <div class="court-cal-stat-card">
-            <div class="court-cal-stat-icon green">✓</div>
+            <div class="court-cal-stat-icon green" style="display: flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
             <div>
               <div class="court-cal-stat-val">${filteredEvents.length === 0 ? 'N/A' : '100%'}</div>
               <div class="court-cal-stat-label">Statutory Compliance</div>
@@ -922,14 +938,14 @@ const TasksView = {
               <button class="court-filter-pill ${this.calendarFilter === 'all' ? 'active' : ''}" onclick="TasksView.setCalendarFilter('all')">
                 All Scheduled (${this.courtEvents.length})
               </button>
-              <button class="court-filter-pill ${this.calendarFilter === 'hearings' ? 'active' : ''}" onclick="TasksView.setCalendarFilter('hearings')">
-                🏛️ Court Hearings (${this.courtEvents.filter(e => e.category === 'hearings').length})
+              <button class="court-filter-pill ${this.calendarFilter === 'hearings' ? 'active' : ''}" style="display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setCalendarFilter('hearings')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h12M6 15h12M12 3L2 7h20L12 3z"/></svg> Court Hearings (${this.courtEvents.filter(e => e.category === 'hearings').length})
               </button>
-              <button class="court-filter-pill ${this.calendarFilter === 'motions' ? 'active' : ''}" onclick="TasksView.setCalendarFilter('motions')">
-                📑 Motions &amp; Petitions (${this.courtEvents.filter(e => e.category === 'motions').length})
+              <button class="court-filter-pill ${this.calendarFilter === 'motions' ? 'active' : ''}" style="display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setCalendarFilter('motions')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Motions &amp; Petitions (${this.courtEvents.filter(e => e.category === 'motions').length})
               </button>
-              <button class="court-filter-pill ${this.calendarFilter === 'briefs' ? 'active' : ''}" onclick="TasksView.setCalendarFilter('briefs')">
-                📄 Briefs &amp; Filings (${this.courtEvents.filter(e => e.category === 'briefs').length})
+              <button class="court-filter-pill ${this.calendarFilter === 'briefs' ? 'active' : ''}" style="display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.setCalendarFilter('briefs')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Briefs &amp; Filings (${this.courtEvents.filter(e => e.category === 'briefs').length})
               </button>
             </div>
           </div>
@@ -949,7 +965,9 @@ const TasksView = {
     if (events.length === 0) {
       return `
         <div class="card empty-state" style="padding: 3.5rem 1.5rem; text-align: center; margin: 1rem 0;">
-          <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem;">📅</div>
+          <div class="empty-icon" style="font-size: 2.8rem; margin-bottom: 0.85rem; display: flex; justify-content: center;">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
           <h3 class="empty-title" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">No deadlines scheduled</h3>
           <p class="empty-desc" style="color: var(--color-text-secondary); max-width: 480px; margin: 0.5rem auto 1.5rem auto; line-height: 1.5;">
             There are currently no court appearances, motion filings, or statutory cutoffs scheduled on the docket.
@@ -978,8 +996,8 @@ const TasksView = {
                 <span class="court-date-month">${evt.monthShort} 2026</span>
                 <span class="court-date-day">${evt.dayNum}</span>
                 <span class="court-date-weekday">${evt.weekday}</span>
-                <div class="court-date-time">
-                  ⏰ ${evt.time.split(' ')[0]} ${evt.time.split(' ')[1]}
+                <div class="court-date-time" style="display: flex; align-items: center; justify-content: center; gap: 0.2rem;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> ${evt.time.split(' ')[0]} ${evt.time.split(' ')[1]}
                 </div>
               </div>
 
@@ -987,12 +1005,12 @@ const TasksView = {
               <div class="court-docket-body">
                 <!-- Meta Row: Case Number & Priority -->
                 <div class="court-docket-meta-row">
-                  <span class="court-matter-pill" onclick="App.navigate('cases'); setTimeout(() => CasesView.openCaseDossier('${evt.caseId}'), 100);" title="Open Case Dossier">
-                    ⚖️ ${evt.caseNumber}
+                  <span class="court-matter-pill" style="display: inline-flex; align-items: center; gap: 0.25rem;" onclick="App.navigate('cases'); setTimeout(() => CasesView.openCaseDossier('${evt.caseId}'), 100);" title="Open Case Dossier">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> ${evt.caseNumber}
                   </span>
                   <span class="court-matter-name">${evt.caseTitle}</span>
                   <span class="badge ${evt.priority === 'High' ? 'badge-priority-high' : 'badge-priority-med'}" style="font-size: 0.68rem; margin-left: auto;">
-                    ${evt.priority === 'High' ? '⚠️ HIGH PRIORITY' : 'MEDIUM'}
+                    ${evt.priority === 'High' ? 'HIGH PRIORITY' : 'MEDIUM'}
                   </span>
                   <span class="badge ${isConfirmed ? 'badge-active' : 'badge-pending'}" style="font-size: 0.68rem;">
                     ${isConfirmed ? '● CONFIRMED' : '⏳ PENDING'}
@@ -1004,14 +1022,14 @@ const TasksView = {
 
                 <!-- Courtroom & Presiding Officer -->
                 <div class="court-room-detail">
-                  <span class="court-detail-item">
-                    🏛️ <strong>${evt.court}</strong>
+                  <span class="court-detail-item" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h12M6 15h12M12 3L2 7h20L12 3z"/></svg> <strong>${evt.court}</strong>
                   </span>
-                  <span class="court-detail-item">
-                    👤 Presiding: <strong>${evt.presiding}</strong>
+                  <span class="court-detail-item" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Presiding: <strong>${evt.presiding}</strong>
                   </span>
-                  <span class="court-detail-item">
-                    📜 Statute: <code style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--color-surface-subtle); padding: 1px 4px; border-radius: 3px;">${evt.statute}</code>
+                  <span class="court-detail-item" style="display: inline-flex; align-items: center; gap: 0.25rem;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Statute: <code style="font-family: var(--font-mono); font-size: 0.72rem; background: var(--color-surface-subtle); padding: 1px 4px; border-radius: 3px;">${evt.statute}</code>
                   </span>
                 </div>
 
@@ -1037,11 +1055,11 @@ const TasksView = {
                   <button class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="TasksView.openEventDetails('${evt.id}')">
                     Inspect Docket
                   </button>
-                  <button class="btn btn-gold btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.65rem;" onclick="App.showToast('Courtroom video portal launched for ${evt.caseNumber}', 'success')">
-                    🏛️ Court Portal
+                  <button class="btn btn-gold btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.65rem; display: inline-flex; align-items: center; gap: 0.25rem;" onclick="App.showToast('Courtroom video portal launched for ${evt.caseNumber}', 'success')">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 7v14M21 7v14M6 11h12M6 15h12M12 3L2 7h20L12 3z"/></svg> Court Portal
                   </button>
-                  <button class="btn btn-ghost btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.5rem; color: #DC2626; border: 1px solid rgba(220,38,38,0.25);" onclick="TasksView.deleteCourtEvent('${evt.id}')" title="Remove from Docket">
-                    🗑️ Remove
+                  <button class="btn btn-ghost btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.5rem; color: #DC2626; border: 1px solid rgba(220,38,38,0.25); display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.deleteCourtEvent('${evt.id}')" title="Remove from Docket">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Remove
                   </button>
                 </div>
               </div>
@@ -1126,7 +1144,7 @@ const TasksView = {
                   const chipColor = evt.priority === 'High' ? 'chip-danger' : evt.category === 'hearings' ? 'chip-navy' : 'chip-gold';
                   return `
                     <div class="court-chip ${chipColor}" onclick="TasksView.openEventDetails('${evt.id}')" title="${evt.time} - ${evt.title} (${evt.caseNumber})">
-                      <span class="court-chip-time">⏰ ${evt.time.split(' ')[0]} ${evt.time.split(' ')[1]}</span>
+                      <span class="court-chip-time">${evt.time.split(' ')[0]} ${evt.time.split(' ')[1]}</span>
                       <span class="court-chip-title"><strong>${evt.caseNumber}:</strong> ${evt.title}</span>
                     </div>
                   `;
@@ -1201,7 +1219,7 @@ const TasksView = {
                         View Docket
                       </button>
                       <button class="btn btn-ghost btn-sm" style="color: #DC2626; padding: 0.25rem 0.45rem;" onclick="TasksView.deleteCourtEvent('${evt.id}')" title="Delete Entry">
-                        🗑️
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
                       </button>
                     </div>
                   </td>
@@ -1220,7 +1238,7 @@ const TasksView = {
     App.openModal(`
       <div class="modal-header">
         <div class="flex items-center gap-2">
-          <span style="font-size: 1.25rem;">🏛️</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M3 21h18M3 7v14M21 7v14M6 11h12M6 15h12M12 3L2 7h20L12 3z"/></svg>
           <div>
             <h3 class="modal-title">Statutory Court Docket & Hearing Dossier</h3>
             <span style="font-size: 0.75rem; color: var(--color-text-secondary);">${evt.caseNumber} • ${evt.statute}</span>
@@ -1236,8 +1254,8 @@ const TasksView = {
             <span class="badge badge-active" style="background: rgba(22, 163, 74, 0.3); color: #86EFAC; border-color: #16A34A;">
               ● ${evt.status}
             </span>
-            <span style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: #FCD34D;">
-              📅 ${evt.date} • ${evt.time}
+            <span style="font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: #FCD34D; display: flex; align-items: center; gap: 0.25rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${evt.date} • ${evt.time}
             </span>
           </div>
           <h4 style="font-size: 1.15rem; font-weight: 700; margin: 0 0 0.35rem 0; color: #FFFFFF;">${evt.title}</h4>
@@ -1274,22 +1292,22 @@ const TasksView = {
 
         <div class="form-group">
           <label class="form-label" style="font-weight: 700;">Required Evidentiary Exhibits & Pleadings</label>
-          <div style="font-size: 0.8rem; font-family: var(--font-mono); background: var(--color-surface-subtle); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); color: var(--color-primary);">
-            📁 ${evt.exhibits}
+          <div style="font-size: 0.8rem; font-family: var(--font-mono); background: var(--color-surface-subtle); padding: 0.65rem 0.85rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); color: var(--color-primary); display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> ${evt.exhibits}
           </div>
         </div>
       </div>
 
       <div class="modal-footer flex items-center justify-between">
         <div class="flex items-center gap-2">
-          <button class="btn btn-danger btn-sm" style="background: #DC2626; color: #FFFFFF;" onclick="TasksView.deleteCourtEvent('${evt.id}')">
-            🗑️ Remove from Docket
+          <button class="btn btn-danger btn-sm" style="background: #DC2626; color: #FFFFFF; display: inline-flex; align-items: center; gap: 0.25rem;" onclick="TasksView.deleteCourtEvent('${evt.id}')">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> Remove from Docket
           </button>
           <button class="btn btn-secondary" onclick="App.closeModal()">Close</button>
         </div>
         <div class="flex gap-2">
           <button class="btn btn-secondary" onclick="App.showToast('iCal/Outlook sync token generated.', 'success'); App.closeModal();">
-            📥 Add to Calendar
+            Add to Calendar
           </button>
           <button class="btn btn-gold" onclick="App.showToast('Appearance record updated and logged to audit trail.', 'success'); App.closeModal();">
             ✓ Confirm Appearance
@@ -1461,7 +1479,9 @@ const TasksView = {
       if (dir === 'next' && (t.status === 'under_review' || t.status === 'in_progress')) {
         App.openModal(`
           <div class="modal-header" style="background: linear-gradient(135deg, #7F1D1D, #450A0A); color: #FFFFFF;">
-            <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.1rem;">⚠️ Legal Counsel Authorization Required</h3>
+            <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.1rem; display: flex; align-items: center; gap: 0.35rem;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Legal Counsel Authorization Required
+            </h3>
             <button class="btn btn-ghost btn-sm" onclick="App.closeModal()" style="color: #FFFFFF;">✕</button>
           </div>
           <div class="modal-body" style="padding: 1.5rem;">
@@ -1501,7 +1521,9 @@ const TasksView = {
     if (isAdmin && !t.isTechnical && t.category !== 'technical' && t.status !== 'completed') {
       App.openModal(`
         <div class="modal-header" style="background: linear-gradient(135deg, #7F1D1D, #450A0A); color: #FFFFFF;">
-          <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.1rem;">⚠️ Cannot Complete Legal Task on Behalf of Counsel</h3>
+          <h3 class="modal-title" style="color: #FFFFFF; font-size: 1.1rem; display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Cannot Complete Legal Task on Behalf of Counsel
+          </h3>
           <button class="btn btn-ghost btn-sm" onclick="App.closeModal()" style="color: #FFFFFF;">✕</button>
         </div>
         <div class="modal-body" style="padding: 1.5rem;">
@@ -1554,7 +1576,9 @@ const TasksView = {
 
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">👤 Reassign Task (Senior Lawyer / Admin)</h3>
+        <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.35rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Reassign Task (Senior Lawyer / Admin)
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -1603,7 +1627,9 @@ const TasksView = {
   openCreateTechnicalTaskModal() {
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">⚙️ Create Technical / System Task (Administrator)</h3>
+        <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.35rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Create Technical / System Task (Administrator)
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -1694,7 +1720,9 @@ const TasksView = {
 
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">🔔 Notify Responsible Users</h3>
+        <h3 class="modal-title" style="display: flex; align-items: center; gap: 0.35rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg> Notify Responsible Users
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -1702,9 +1730,9 @@ const TasksView = {
           Send automated docket reminder notices to all lawyers and staff regarding active tasks and upcoming court deadlines.
         </p>
         <div style="background: var(--color-surface-subtle); padding: 1rem; border-radius: 6px; font-size: 0.84rem; line-height: 1.6; margin-bottom: 1rem;">
-          <div>📋 <strong>Active Pending Tasks:</strong> ${pendingTasks.length}</div>
-          <div>⚠️ <strong>Unassigned Action Items:</strong> ${unassigned.length}</div>
-          <div>👥 <strong>Notified Recipients:</strong> Eleanor Vance, Julian Mercer, Sophia Chen, Marcus Bell</div>
+          <div style="display: flex; align-items: center; gap: 0.3rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> <strong>Active Pending Tasks:</strong> ${pendingTasks.length}</div>
+          <div style="display: flex; align-items: center; gap: 0.3rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-danger);"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> <strong>Unassigned Action Items:</strong> ${unassigned.length}</div>
+          <div style="display: flex; align-items: center; gap: 0.3rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> <strong>Notified Recipients:</strong> Eleanor Vance, Julian Mercer, Sophia Chen, Marcus Bell</div>
         </div>
         <div class="form-group">
           <label class="form-label">Notification Message</label>
@@ -1790,7 +1818,7 @@ const TasksView = {
           <div class="form-group">
             <label class="form-label required">Priority Level</label>
             <select id="nt-priority" class="form-control">
-              <option value="Urgent">🚨 Urgent (Court Direct Order / Emergency)</option>
+              <option value="Urgent">Urgent (Court Direct Order / Emergency)</option>
               <option value="High">High Priority (Time Sensitive)</option>
               <option value="Medium" selected>Medium (Standard Preparation)</option>
               <option value="Low">Low (Routine Follow-up)</option>
@@ -1801,8 +1829,8 @@ const TasksView = {
         <!-- Statutory Deadline Calculator Preset Strip -->
         <div style="background: rgba(200, 155, 60, 0.08); border: 1px solid rgba(200, 155, 60, 0.25); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; margin-bottom: 1rem;">
           <div class="flex items-center justify-between flex-wrap gap-2 mb-1.5">
-            <span style="font-size: 0.78rem; font-weight: 700; color: var(--color-gold); text-transform: uppercase;">
-              ⚖️ Court Rules Deadline Presets:
+            <span style="font-size: 0.78rem; font-weight: 700; color: var(--color-gold); text-transform: uppercase; display: flex; align-items: center; gap: 0.25rem;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Court Rules Deadline Presets:
             </span>
             <span style="font-size: 0.74rem; color: var(--color-text-muted);">Click to auto-compute statutory date</span>
           </div>
@@ -1915,7 +1943,10 @@ const TasksView = {
 
     App.openModal(`
       <div class="modal-header">
-        <h3 class="modal-title">🔍 Partner Review: ${t.title}</h3>
+        <h3 class="modal-title flex items-center gap-2">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Partner Review: ${t.title}
+        </h3>
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
@@ -2021,21 +2052,21 @@ const TasksView = {
           </div>
           <div style="background: var(--color-surface-subtle); padding: 0.75rem 1rem; border-radius: 8px;">
             <div style="font-size: 0.72rem; color: var(--color-text-muted); text-transform: uppercase; font-weight: 700;">Due Date &amp; Docket Status</div>
-            <div style="font-size: 0.90rem; font-weight: 700; color: ${t.status === 'completed' ? '#10B981' : '#0F172A'}; margin-top: 0.15rem;">
-              📅 ${t.dueDate || 'No date specified'} &bull; <span style="text-transform: capitalize;">${(t.status || 'todo').replace('_', ' ')}</span>
+            <div style="font-size: 0.90rem; font-weight: 700; color: ${t.status === 'completed' ? '#10B981' : '#0F172A'}; margin-top: 0.15rem; display: flex; align-items: center; gap: 0.25rem;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> ${t.dueDate || 'No date specified'} &bull; <span style="text-transform: capitalize;">${(t.status || 'todo').replace('_', ' ')}</span>
             </div>
           </div>
         </div>
 
         ${t.isStatutoryDeadline ? `
-          <div style="background: rgba(200, 155, 60, 0.08); border: 1px solid rgba(200, 155, 60, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.80rem; color: #92400E;">
-            ⚖️ <strong>Verified Statutory Rule:</strong> ${t.statutoryReference || 'Tanzanian Civil & Commercial Docket Regulation'}
+          <div style="background: rgba(200, 155, 60, 0.08); border: 1px solid rgba(200, 155, 60, 0.25); border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.80rem; color: #92400E; display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong>Verified Statutory Rule:</strong> ${t.statutoryReference || 'Tanzanian Civil & Commercial Docket Regulation'}
           </div>
         ` : ''}
 
         ${t.reviewFeedback ? `
-          <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.82rem; color: #1E40AF;">
-            💬 <strong>Supervising Partner Feedback:</strong> ${t.reviewFeedback}
+          <div style="background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 8px; padding: 0.65rem 0.85rem; margin-bottom: 0.85rem; font-size: 0.82rem; color: #1E40AF; display: flex; align-items: center; gap: 0.35rem;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> <strong>Supervising Partner Feedback:</strong> ${t.reviewFeedback}
           </div>
         ` : ''}
 
@@ -2097,8 +2128,8 @@ const TasksView = {
         <button class="btn btn-ghost btn-sm" onclick="App.closeModal()">✕</button>
       </div>
       <div class="modal-body">
-        <div style="background: rgba(200, 155, 60, 0.08); border: 1px solid rgba(200, 155, 60, 0.25); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 0.82rem; color: #78350F; line-height: 1.45;">
-          ⚖️ <strong>Statutory Docket Rule:</strong> A statutory deadline is monitored against specific Tanzanian civil/commercial court orders and statutory limitation rules (e.g. Civil Procedure Code Cap 33, Law of Limitation Act Cap 89).
+        <div style="background: rgba(200, 155, 60, 0.08); border: 1px solid rgba(200, 155, 60, 0.25); border-radius: var(--radius-sm); padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 0.82rem; color: #78350F; line-height: 1.45; display: flex; align-items: center; gap: 0.35rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> <strong>Statutory Docket Rule:</strong> A statutory deadline is monitored against specific Tanzanian civil/commercial court orders and statutory limitation rules (e.g. Civil Procedure Code Cap 33, Law of Limitation Act Cap 89).
         </div>
 
         <div class="form-group mb-3">

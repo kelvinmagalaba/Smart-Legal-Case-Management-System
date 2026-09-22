@@ -24,9 +24,10 @@ const AICopilot = {
     const container = document.createElement('div');
     container.id = 'ai-copilot-drawer-container';
     container.innerHTML = `
-      <!-- Floating Action Button (Legal Assistant) -->
       <div id="ai-copilot-fab" class="ai-copilot-fab" onclick="AICopilot.toggleDrawer()" title="Legal Assistant (Ctrl+J)" aria-label="Legal Assistant">
-        <span class="ai-copilot-fab-icon">⚖️</span>
+        <span class="ai-copilot-fab-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+        </span>
       </div>
 
       <!-- Backdrop Overlay -->
@@ -55,19 +56,19 @@ const AICopilot = {
         <!-- Tool Navigation Bar (5 Legal Modes: Chat, Win %, Brief, UTBMS, Deadlines) -->
         <div class="ai-copilot-nav">
           <button class="ai-copilot-nav-btn ${this.activeTab === 'chat' ? 'active' : ''}" onclick="AICopilot.switchTab('chat')">
-            💬 Legal Chat
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Legal Chat
           </button>
           <button class="ai-copilot-nav-btn ${this.activeTab === 'risk' ? 'active' : ''}" onclick="AICopilot.switchTab('risk')">
-            ⚖️ Win %
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg> Win %
           </button>
           <button class="ai-copilot-nav-btn ${this.activeTab === 'summarize' ? 'active' : ''}" onclick="AICopilot.switchTab('summarize')">
-            📄 Redact & Brief
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Redact & Brief
           </button>
           <button class="ai-copilot-nav-btn ${this.activeTab === 'billing' ? 'active' : ''}" onclick="AICopilot.switchTab('billing')">
-            ⏱️ UTBMS
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> UTBMS
           </button>
           <button class="ai-copilot-nav-btn ${this.activeTab === 'deadline' ? 'active' : ''}" onclick="AICopilot.switchTab('deadline')">
-            📅 Deadlines
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block; vertical-align:-2px; margin-right:4px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Deadlines
           </button>
         </div>
 
@@ -193,19 +194,27 @@ const AICopilot = {
             
             <div class="ai-welcome-cards-stack">
               <button type="button" class="ai-welcome-card" onclick="AICopilot.sendPresetPrompt('about cases like criminal')">
-                <span class="ai-welcome-card-icon">⚖️</span>
+                <span class="ai-welcome-card-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 7h18M6 7l-3 7a3 3 0 0 0 6 0L6 7zm12 0l-3 7a3 3 0 0 0 6 0L18 7z"/></svg>
+                </span>
                 <span class="ai-welcome-card-text">about cases like criminal</span>
               </button>
               <button type="button" class="ai-welcome-card" onclick="AICopilot.sendPresetPrompt('Find High Court & Appellate judgments (2020 - 2026)')">
-                <span class="ai-welcome-card-icon">🔍</span>
+                <span class="ai-welcome-card-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </span>
                 <span class="ai-welcome-card-text">Find High Court &amp; Appellate judgments (2020 - 2026)</span>
               </button>
               <button type="button" class="ai-welcome-card" onclick="AICopilot.sendPresetPrompt('Summarize Attilio v Mbowe [1969] HCD 284')">
-                <span class="ai-welcome-card-icon">📄</span>
+                <span class="ai-welcome-card-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
                 <span class="ai-welcome-card-text">Summarize Attilio v Mbowe [1969] HCD 284</span>
               </button>
               <button type="button" class="ai-welcome-card" onclick="AICopilot.sendPresetPrompt('Show facts of Abdallah Salum Muwinge vs Halima Ismail')">
-                <span class="ai-welcome-card-icon">ℹ️</span>
+                <span class="ai-welcome-card-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                </span>
                 <span class="ai-welcome-card-text">Show facts of Abdallah Salum Muwinge vs Halima Ismail</span>
               </button>
             </div>
@@ -255,7 +264,7 @@ const AICopilot = {
                     </div>
                   </div>
                 ` : ''}
-                ${m.citation ? `<div style="font-size: 0.72rem; color: var(--color-gold); margin-top: 0.5rem;">📜 ${m.citation}</div>` : ''}
+                ${m.citation ? `<div style="font-size: 0.72rem; color: var(--color-gold); margin-top: 0.5rem; display: flex; align-items: center; gap: 0.35rem;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg> ${m.citation}</div>` : ''}
                 <div class="ai-disclaimer-text" style="margin-top: 0.75rem;">
                   AI can make mistakes, so check its responses.
                 </div>
@@ -288,7 +297,7 @@ const AICopilot = {
                     </button>
                     ${m.tanzliiUrl ? `
                       <a href="${m.tanzliiUrl}" target="_blank" rel="noopener" class="ai-action-icon-btn" style="text-decoration: none; color: var(--color-gold);" title="Open official TanzLII precedent">
-                        🌐
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                       </a>
                     ` : ''}
                   </div>
@@ -330,7 +339,7 @@ const AICopilot = {
               </select>
             </div>
             <button class="btn btn-gold btn-sm w-full" onclick="AICopilot.calculateRiskScore()">
-              <span>⚡ Compute Win / Settlement Probability</span>
+              <span class="flex items-center justify-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Compute Win / Settlement Probability</span>
             </button>
           </div>
 
@@ -348,11 +357,13 @@ const AICopilot = {
               <div style="padding: 0.5rem; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 4px; color: #166534;">
                 ✔ <strong>Discovery Proof:</strong> Strong unrefuted documentary evidence regarding Section 4.2 compliance.
               </div>
-              <div style="padding: 0.5rem; background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 4px; color: #92400E;">
-                ⚠️ <strong>Risk Factor:</strong> Opposing party may file cross-motion for discovery extension under CPLR 3212(f).
+              <div style="padding: 0.5rem; background: #FEF3C7; border: 1px solid #FCD34D; border-radius: 4px; color: #92400E; display: flex; items-center; gap: 0.35rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span><strong>Risk Factor:</strong> Opposing party may file cross-motion for discovery extension under CPLR 3212(f).</span>
               </div>
-              <div style="padding: 0.5rem; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 4px; color: #1E40AF;">
-                🏛️ <strong>Judge Tendency:</strong> Hon. Justice Thorne grants summary judgment in 64% of commercial contract matters.
+              <div style="padding: 0.5rem; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 4px; color: #1E40AF; display: flex; items-center; gap: 0.35rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+                <span><strong>Judge Tendency:</strong> Hon. Justice Thorne grants summary judgment in 64% of commercial contract matters.</span>
               </div>
             </div>
           </div>
@@ -369,7 +380,7 @@ const AICopilot = {
               ${SLCMS_STATE.documents.map(d => `<option value="${d.id}">${d.title} (${d.fileType})</option>`).join('')}
             </select>
             <button class="btn btn-gold btn-sm w-full" onclick="AICopilot.runDocAudit()">
-              <span>🔒 Redact PII & Generate Executive Brief</span>
+              <span class="flex items-center justify-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Redact PII & Generate Executive Brief</span>
             </button>
           </div>
         </div>
@@ -383,7 +394,7 @@ const AICopilot = {
             <label class="form-label required" style="font-size: 0.78rem;">Convert Lawyer Time Entries to UTBMS Codes</label>
             <textarea id="copilot-raw-billing" class="form-control" style="font-size: 0.82rem; height: 75px; margin-bottom: 0.65rem;" placeholder="e.g. Spent 2.5 hrs drafting summary judgment motion and researching TanzLII precedents..."></textarea>
             <button class="btn btn-gold btn-sm w-full" onclick="AICopilot.convertUTBMS()">
-              <span>⏱️ Auto-Format into ABA UTBMS Task Code</span>
+              <span class="flex items-center justify-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Auto-Format into ABA UTBMS Task Code</span>
             </button>
           </div>
         </div>
@@ -401,7 +412,7 @@ const AICopilot = {
               <option value="probate">High Court (Probate) - Filing Caveat (30 Days)</option>
             </select>
             <button class="btn btn-gold btn-sm w-full" onclick="AICopilot.calculateStatutoryDeadline()">
-              <span>📅 Compute Statutory Docket Dates</span>
+              <span class="flex items-center justify-center gap-1.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Compute Statutory Docket Dates</span>
             </button>
           </div>
         </div>
@@ -419,29 +430,29 @@ const AICopilot = {
           ${showCatBar ? `
             <!-- 8 Primary Category Action Buttons Bar (Sits Above Input Dock during active conversation) -->
             <div class="ai-copilot-cat-btn-bar">
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Find Abdallah Salum Muwinge')">
-                🔍 Find Judgment
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Find Abdallah Salum Muwinge')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Find Judgment
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Summarize Abdallah Salum Muwinge v Halima Ismail')">
-                📄 Summarize Case
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Summarize Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Summarize Case
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Show facts of Abdallah Salum Muwinge v Halima Ismail')">
-                ℹ️ Show Facts
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Show facts of Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Show Facts
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Show legal issues in Abdallah Salum Muwinge v Halima Ismail')">
-                ❓ Show Legal Issues
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Show legal issues in Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Show Legal Issues
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Show court reasoning in Abdallah Salum Muwinge v Halima Ismail')">
-                🧠 Court Reasoning
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Show court reasoning in Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg> Court Reasoning
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Show final decision in Abdallah Salum Muwinge v Halima Ismail')">
-                ✅ Final Decision
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Show final decision in Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Final Decision
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AICopilot.sendPresetPrompt('Show laws and cases cited in Abdallah Salum Muwinge v Halima Ismail')">
-                📚 Laws Cited
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AICopilot.sendPresetPrompt('Show laws and cases cited in Abdallah Salum Muwinge v Halima Ismail')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg> Laws Cited
               </button>
-              <button type="button" class="ai-copilot-cat-btn" onclick="AIAssistantView.viewPdfModal('assets/cases/case1_scanned_judgment.pdf', 'Abdallah Salum Muwinge v Halima Ismail [2020] TZHC 10045')">
-                🌐 Open Original
+              <button type="button" class="ai-copilot-cat-btn flex items-center gap-1" onclick="AIAssistantView.viewPdfModal('assets/cases/case1_scanned_judgment.pdf', 'Abdallah Salum Muwinge v Halima Ismail [2020] TZHC 10045')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg> Open Original
               </button>
             </div>
           ` : ''}
