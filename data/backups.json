@@ -1,0 +1,24 @@
+﻿[
+    {
+        "id":  "bkp-1789626650411",
+        "filename":  "SLCMS_Snapshot_20260917_063050.json",
+        "filepath":  "C:\\Users\\messi\\OneDrive\\Desktop\\SLCMS\\data\\backups\\SLCMS_Snapshot_20260917_063050.json",
+        "sizeBytes":  24631,
+        "sizeFormatted":  "24.1 KB",
+        "status":  "Successful",
+        "createdBy":  "Manual Administrator Backup",
+        "createdAt":  "2026-09-17T06:30:50.3860511Z",
+        "dateFormatted":  "17 September 2026, 6:30 AM"
+    },
+    {
+        "id":  "bkp-1789625609199",
+        "filename":  "SLCMS_Snapshot_20260917_061329.json",
+        "filepath":  "C:\\Users\\messi\\OneDrive\\Desktop\\SLCMS\\data\\backups\\SLCMS_Snapshot_20260917_061329.json",
+        "sizeBytes":  23998,
+        "sizeFormatted":  "23.4 KB",
+        "status":  "Successful",
+        "createdBy":  "Manual Administrator Backup",
+        "createdAt":  "2026-09-17T06:13:29.1471868Z",
+        "dateFormatted":  "17 September 2026, 6:13 AM"
+    }
+]

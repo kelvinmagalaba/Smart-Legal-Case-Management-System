@@ -1,0 +1,22 @@
+﻿[
+    {
+        "id":  "th-1789668223745",
+        "taskId":  "tsk-1789668223563-61ab",
+        "previousStatus":  "TO_DO",
+        "newStatus":  "IN_PROGRESS",
+        "changedBy":  null,
+        "changedByName":  null,
+        "changeReason":  "Task started by assigned practitioner",
+        "changedAt":  "2026-09-17T18:03:43.7458883Z"
+    },
+    {
+        "id":  "th-1789668223658",
+        "taskId":  "tsk-1789668223563-61ab",
+        "previousStatus":  null,
+        "newStatus":  "TO_DO",
+        "changedBy":  null,
+        "changedByName":  null,
+        "changeReason":  "Task created and assigned",
+        "changedAt":  "2026-09-17T18:03:43.6083186Z"
+    }
+]

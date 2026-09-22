@@ -1,0 +1,127 @@
+[ {
+  "id" : 18,
+  "settingKey" : "case_statuses",
+  "settingValue" : "Active,Pending,Closed,Archived",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 16,
+  "settingKey" : "case_number_format",
+  "settingValue" : "CV/YYYY/####",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 3,
+  "settingKey" : "system_short_name",
+  "settingValue" : "SLCMS",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 2,
+  "settingKey" : "system_name",
+  "settingValue" : "Smart Legal Case Management System",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 15,
+  "settingKey" : "allowed_file_types",
+  "settingValue" : "PDF,DOCX,JPG,PNG",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 13,
+  "settingKey" : "ocr_enabled",
+  "settingValue" : "true",
+  "settingType" : "BOOLEAN",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 1,
+  "settingKey" : "organization_name",
+  "settingValue" : "SLCMS Law Firm",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 4,
+  "settingKey" : "organization_logo",
+  "settingValue" : "assets/SLCMS.png",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 17,
+  "settingKey" : "case_categories",
+  "settingValue" : "Civil,Criminal,Land,Matrimonial,Probate,Commercial,Other",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 10,
+  "settingKey" : "lock_duration_minutes",
+  "settingValue" : "15",
+  "settingType" : "NUMBER",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 14,
+  "settingKey" : "automatic_backup",
+  "settingValue" : "WEEKLY",
+  "settingType" : "ENUM",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 7,
+  "settingKey" : "office_address",
+  "settingValue" : "Dar es Salaam, Tanzania",
+  "settingType" : "TEXT",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 12,
+  "settingKey" : "maximum_upload_mb",
+  "settingValue" : "50",
+  "settingType" : "NUMBER",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 5,
+  "settingKey" : "official_email",
+  "settingValue" : "admin@slcms.local",
+  "settingType" : "EMAIL",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 6,
+  "settingKey" : "phone_number",
+  "settingValue" : "+255700000001",
+  "settingType" : "PHONE",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 11,
+  "settingKey" : "session_duration_minutes",
+  "settingValue" : "60",
+  "settingType" : "NUMBER",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 9,
+  "settingKey" : "maximum_login_attempts",
+  "settingValue" : "5",
+  "settingType" : "NUMBER",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+}, {
+  "id" : 8,
+  "settingKey" : "minimum_password_length",
+  "settingValue" : "10",
+  "settingType" : "NUMBER",
+  "updatedBy" : 1,
+  "updatedAt" : [ 2026, 9, 22, 13, 59, 10, 224403600 ]
+} ]

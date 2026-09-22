@@ -1,0 +1,10 @@
+[ {
+  "id" : 1,
+  "filename" : "slcms_initial_snapshot_20260908.enc",
+  "filepath" : "backups/slcms_initial_snapshot_20260908.enc",
+  "sizeBytes" : 14829312,
+  "status" : "Successful",
+  "createdBy" : "System Automation",
+  "verified" : true,
+  "createdAt" : [ 2026, 9, 22, 13, 59, 10, 296047200 ]
+} ]

@@ -1,0 +1,12 @@
+{
+  "host": "smtp.gmail.com",
+  "port": 587,
+  "enableSsl": true,
+  "username": "legalcasem@gmail.com",
+  "password": "",
+  "fromEmail": "legalcasem@gmail.com",
+  "fromName": "SLCMS Law Firm",
+  "configured": true,
+  "lastTestedAt": "2026-09-22T08:00:00Z",
+  "testStatus": "Ready"
+}
